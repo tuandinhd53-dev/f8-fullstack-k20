@@ -10,10 +10,8 @@
             ES2025 JavaScript: Patterns và Libraries Hot Nhất Cho Developer Việt
             2026
         </h1>
-        <h2 id="ES2025 ra mắt">
-            <a href="#ES2025 ra mắt"
-                >ES2025 ra mắt - cái gì thật sự vào spec?</a
-            >
+        <h2 id="ES2025">
+            <a href="#ES2025">ES2025 ra mắt - cái gì thật sự vào spec?</a>
         </h2>
         <p>
             Tháng 6/2025, TC39 chính thức công bố ECMAScript 2025 (ES16). Nếu
@@ -70,8 +68,8 @@
             Luxon hoặc date-fns cho date/time là lựa chọn thực tế nhất hiện tại.
         </p>
         <hr />
-        <h2 id="Iterator Helpers và Set Methods">
-            <a href="#Iterator Helpers và Set Methods"
+        <h2 id="Iterator-Helpers-và-Set-Methods">
+            <a href="#Iterator-Helpers-và-Set-Methods"
                 >Iterator Helpers và Set Methods - dùng thật trong dự án thế
                 nào?</a
             >
@@ -138,8 +136,10 @@ const newMessages = socketMessages.difference(cachedMessages);
             bug. Set methods native clean hơn nhiều và chain được với nhau.
         </p>
         <hr />
-        <h2 id="Promise.try() và async/await patterns">
-            <a href="#Promise.try() và async/await patterns">Promise.try() và async/await patterns nâng cao</a>
+        <h2 id="Promise.try()">
+            <a href="#Promise.try()"
+                >Promise.try() và async/await patterns nâng cao</a
+            >
         </h2>
         <p>Đây là tính năng mình mong nhất trong ES2025. Vấn đề cũ:</p>
         <pre><code>// Bug tiềm ẩn: nếu getUser() throw sync, lỗi không bị catch!
@@ -155,12 +155,9 @@ Promise.try(() => getUser(id))
   .then(user => fetchDetails(user))
   .catch(err => handleError(err)); // bắt được cả sync lẫn async error
 </code></pre>
-        <p>
-            <strong
-                >Pattern mạnh hơn: kết hợp với async generators cho streaming
-                data</strong
-            >
-        </p>
+        <h3>
+            Pattern mạnh hơn: kết hợp với async generators cho streaming data
+        </h3>
         <pre><code>async function* streamDashboardData(endpoint) {
   const response = await Promise.try(() => fetch(endpoint));
   const reader = response.body.getReader();
@@ -211,9 +208,10 @@ export const permissions = initialPermissions.union(cachedPermissions);
             tại sao.
         </p>
         <hr />
-        <h2 id="RxJS vs Zustand">
-            <a href="#RxJS vs Zustand">RxJS vs Zustand - chọn gì cho
-            realtime web app?</a>
+        <h2 id="RxJS-Zustand">
+            <a href="#RxJS-Zustand"
+                >RxJS vs Zustand - chọn gì cho realtime web app?</a
+            >
         </h2>
         <p>
             Mình sẽ không nói "cái nào tốt hơn" vì câu trả lời phụ thuộc vào
@@ -283,9 +281,11 @@ function ChatApp() {
         <p>Bảng so sánh thực tế:</p>
         <table>
             <thead>
-                <td>Tiêu chí</td>
-                <td>RxJS v8.x</td>
-                <td>Zustand v5.x</td>
+                <tr>
+                    <th>Tiêu chí</th>
+                    <th>RxJS v8.x</th>
+                    <th>Zustand v5.x</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -323,9 +323,10 @@ function ChatApp() {
             vào Zustand.
         </p>
         <hr />
-        <h2 id="Xây realtime dashboard với ES2025">
-            <a href="#Xây realtime dashboard với ES2025">Xây realtime
-            dashboard với ES2025 + Zustand: ví dụ thực tế</a>
+        <h2 id="Xây-realtime">
+            <a href="#Xây-realtime"
+                >Xây realtime dashboard với ES2025 + Zustand: ví dụ thực tế</a
+            >
         </h2>
         <p>
             Mình sẽ ghép tất cả những gì đã nói vào một mini case study:
