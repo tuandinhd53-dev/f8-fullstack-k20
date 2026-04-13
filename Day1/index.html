@@ -352,38 +352,6 @@ React components (subscribe minimal)</pre
         <p><strong>Store với ES2025 patterns:</strong></p>
         <pre><code>import { create } from 'zustand';
 
-const useStockStore = create((set, get) => ({
-  prices: new Map(), // symbol -> latest price
-  symbols: new Set(), // active symbols
-  
-  subscribeToSymbols: async (newSymbols) => {
-    const current = get().symbols;
-    // Set union - không duplicate
-    const updated = current.union(new Set(newSymbols));
-    set({ symbols: updated });
-    
-    // Promise.try bắt cả sync error từ WebSocket init
-    await Promise.try(async () => {
-      const ws = new WebSocket(`wss://api/stocks?symbols=${[...updated].join(',')}`);
-      
-      ws.onmessage = (e) => {
-        const { symbol, price } = JSON.parse(e.data);
-        set(state => ({
-          prices: new Map(state.prices).set(symbol, price)
-        }));
-      };
-    });
-  },
-  
-  // Iterator Helpers: lấy top 10 cổ phiếu tăng nhiều nhất
-  getTopGainers: (baseline) => {
-    return Iterator.from(get().prices.entries())
-      .filter(([, price]) => price > (baseline.get(symbol) ?? 0))
-      .map(([symbol, price]) => ({ symbol, price }))
-      .take(10)
-      .toArray();
-  },
-}));
 </code></pre>
         <figure>
             <img
