@@ -1,0 +1,216 @@
+body {
+    /* Khi bôi đen text, nền chuyển sang #bfdbfe, chữ #0f172a (dùng ::selection) */
+
+    ::selection {
+        background: #bfdbfe;
+        color: #0f172a;
+    }
+
+    /* Phần tử có thuộc tính lang bắt đầu bằng "vi" có màu #0f172a */
+
+    [lang^="vi"] {
+        color: #0f172a;
+    }
+
+    /* Các nút bấm: */
+
+    button {
+        background: #2563eb;
+        color: white;
+
+        &:hover {
+            background: #3b82f6;
+        }
+
+        &:active {
+            background: #1d4ed8;
+        }
+
+        &:disabled {
+            background: #94a3b8;
+            color: #cbd5e1;
+        }
+    }
+}
+/*  header    */
+
+/* Bài 1: Combinators */
+
+.site-header a {
+    color: #1d4ed8;
+}
+
+.main-nav a {
+    background: #f1f5f9;
+}
+/* main */
+
+.site-main .author a {
+    color: #f97316;
+}
+
+h2 ~ p {
+    color: #0f172a;
+}
+
+*/ h2 + p {
+    color: #64748b;
+}
+
+/* Bài 2: CSS Nesting */
+.post {
+    background: white;
+
+    & .post-title {
+        color: #0f172a;
+    }
+
+    &.featured {
+        background: #fefce8;
+    }
+
+    &:hover {
+        background: #f8fafc;
+
+        & .post-title {
+            color: #2563eb;
+        }
+    }
+
+    /* Bài 3: Interactive Pseudo-classes */
+
+    a {
+        &:link {
+            color: #2563eb;
+        }
+
+        &:visited {
+            color: #9333ea;
+        }
+
+        &:hover {
+            color: #1e40af;
+        }
+
+        &:active {
+            color: #1e3a8a;
+        }
+
+        /* Link bắt đầu bằng "https://" có màu #2563eb */
+
+        &[href^="https://"] {
+            color: #2563eb;
+        }
+    }
+}
+
+.post.featured {
+    /* * Bài 4: Structural Pseudo-classes * */
+
+    .comparison-table {
+        thead {
+            tr {
+                background: #0f172a;
+                color: white;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background: #f8fafc;
+                }
+
+                &:nth-child(even) {
+                    background: white;
+                }
+
+                &:last-child {
+                    background: #dbeafe;
+                }
+
+                /* Hàng trong bảng có độ ưu tiên cao (data-priority="high") có nền #fee2e2 */
+
+                &[data-priority="high"] {
+                    background: #fee2e2;
+                }
+            }
+        }
+    }
+
+    .steps li {
+        &:first-child {
+            color: #16a34a;
+        }
+
+        &:last-child {
+            color: #dc2626;
+        }
+
+        &:nth-child(3) {
+            background: #fef3c7;
+        }
+
+        &::marker {
+            color: #2563eb;
+        }
+    }
+
+    /* Bài 5: Pseudo-elements */
+
+    .post-content {
+        p {
+            &::first-line {
+                color: #0f172a;
+            }
+
+            &::first-letter {
+                color: #2563eb;
+            }
+        }
+        .quote::before {
+            content: '"';
+            color: #cbd5e1;
+        }
+    }
+
+    .badge.new::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #ef4444;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
+    /* Link bắt đầu bằng "https://" có màu #2563eb */
+    .resource-list li:nth-child(2) a {
+        color: #ea580c;
+    }
+
+    .share-buttons .btn {
+        background: #e2e8f0;
+    }
+}
+
+/* footer  */
+
+.sidebar {
+    input:focus {
+        background: #eff6ff;
+    }
+
+    .widget {
+        background: white;
+
+        &:last-child {
+            background: none;
+        }
+    }
+
+    /* Ô nhập bắt buộc (required) có nền #fffbeb */
+
+    input[required] {
+        background: #fffbeb;
+    }
+}
