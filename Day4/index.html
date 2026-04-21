@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>day4</title>
+
+        <!-- Reset Css -->
+        <link rel="stylesheet" href="./reset.css" />
+
+        <!-- Styles Css -->
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="heading">TRUNG TÂM CẤU HÌNH GIAO DIỆN</h1>
+            </header>
+            <main class="controls">
+                <!-- KHU ĐIỀU KHIỂN (phía trên) -->
+
+                <h2>Chọn giao diện (Theme):</h2>
+                <input type="radio" name="theme" id="light" checked />
+                <label for="light"> Light</label>
+                <input type="radio" name="theme" id="dark" />
+                <label for="dark"> Dark</label>
+
+                <h2>Chọn màu chủ đạo (Color):</h2>
+                <input type="radio" name="color" id="red" checked />
+                <label for="red"> Red</label>
+                <input type="radio" name="color" id="blue" />
+                <label for="blue"> Blue</label>
+                <input type="radio" name="color" id="green" />
+                <label for="green"> Green</label>
+
+                <h2>Chọn ngôn ngữ (Language):</h2>
+                <input type="radio" name="lang" id="vi" checked />
+
+                <label for="vi"> VI</label>
+
+                <input type="radio" name="lang" id="en" />
+
+                <label for="en"> EN</label>
+
+                <h2>Tùy chọn bổ sung(options - Checkbox):</h2>
+
+                <input type="checkbox" name="options" id="adv" checked />
+
+                <label for="adv"> Hiển thị mô tả nâng cao</label>
+
+                <input type="checkbox" name="options" id="eco" checked />
+
+                <label for="eco">Bật chế độ Eco</label>
+
+                <input type="checkbox" name="options" id="war" checked />
+
+                <label for="war">Hiển thị cảnh báo nghiêm trọng</label>
+
+                <!-- KHU MÔ TẢ KẾT QUẢ (phía dưới) -->
+                <div class="preview">
+                    <p class="desc-light">
+                        Theme Light: Giao diện sáng, chữ đen.
+                    </p>
+                    <p class="desc-dark">
+                        Theme Dark: Giao diện tối, chữ sáng.
+                    </p>
+                    <p class="desc-red">
+                        Màu Red: được nhấn mạnh khi chọn Red.
+                    </p>
+                    <p class="desc-blue">
+                        Màu Blue: được nhấn mạnh khi chọn Blue.
+                    </p>
+                    <p class="desc-green">
+                        Màu Green: được nhấn mạnh khi chọn Green.
+                    </p>
+                    <p class="desc-vi">[VI] Xin chào bạn!Khi chọn VI</p>
+                    <p class="desc-en">[EN] Hello,world!Khi chọn EN</p>
+                    <p class="desc-adv">
+                        Mô tả nâng cao: giải thích kĩ hơn về cách đang ảnh hưởng
+                        giao diện.
+                    </p>
+                    <p class="desc-eco">
+                        Chế độ Eco: mô phỏng trạng thái tiết kiệm tài nguyên cho
+                        giao diện.
+                    </p>
+                    <p class="desc-war">
+                        Cảnh báo quan trọng: khu vực dùng để nhấn mạnh thông tin
+                        hệ thống.
+                    </p>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
