@@ -53,8 +53,8 @@ h2 ~ p {
     color: #0f172a;
 }
 
-*/ h2 + p {
-    color: #64748b;
+ h2 + p {
+    color: red;
 }
 
 /* Bài 2: CSS Nesting */

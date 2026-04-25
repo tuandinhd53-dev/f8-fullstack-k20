@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./styles.css" />
+
+        <!-- style css -->
+
+        <style>
+            figure {
+                display: inline-block;
+            }
+
+            figcaption {
+                margin-top: 10px;
+            }
+
+            .square {
+                width: 100px;
+                height: 100px;
+                border: 3px solid red;
+            }
+
+            .rectangle {
+                width: 200px;
+                height: 90px;
+                border: 3px solid rgb(14, 188, 231);
+            }
+
+            .triangle-up {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-bottom-color: green;
+                border-width: 0 50px 110px 50px;
+            }
+
+            .triangle-down {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-top-color: orange;
+                border-width: 110px 50px 0 50px;
+            }
+
+            .triangle-left {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 50px 110px 50px 0;
+                border-right-color: blueviolet;
+            }
+
+            .triangle-right {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 50px 0 50px 110px;
+                border-left-color: orange;
+            }
+
+            .trapezoid {
+                width: 100px;
+                height: 0;
+                border: solid transparent;
+                border-width: 0 40px 80px 45px;
+
+                border-bottom-color: greenyellow;
+            }
+
+            .triangle-wide {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-bottom-color: sienna;
+                border-width: 0 100px 60px 100px;
+            }
+
+            .triangle-acute {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-bottom-color: red;
+                border-width: 0 30px 110px 30px;
+            }
+
+            .triangle-isosceles {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 0 60px 120px 60px;
+                border-bottom-color: blue;
+            }
+
+            .arrow-right {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 30px 0 30px 70px;
+                border-left-color: aqua;
+            }
+
+            .arrow-left {
+                width: 0;
+                height: 0;
+                border: solid transparent;
+                border-width: 30px 70px 30px 0px;
+                border-right-color: khaki;
+            }
+
+            .ribbon {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 45px 50px 40px 80px;
+                border-color: pink;
+                border-right-color: transparent;
+            }
+
+            .shape-f {
+                display: inline-block;
+                width: 100px;
+                height: 180px;
+                border-top: 30px solid red;
+                border-left: 30px solid red;
+                vertical-align: top;
+            }
+
+            .f-middle {
+                width: 100px;
+                height: 50px;
+                border-bottom: 30px solid red;
+            }
+
+            .shape-8 {
+                margin-left: 30px;
+                display: inline-block;
+                width: 80px;
+                height: 150px;
+                border: 30px solid red;
+            }
+
+            .eight-middle {
+                width: 100px;
+                height: 50px;
+                border-bottom: 30px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="boder-container">
+            <h1 class="heading">Các hình có thể tạo được với Border</h1>
+            <div class="shape-group">
+                <figure class="shape-item">
+                    <div class="square"></div>
+                    <figcaption>1.Hình vuông</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="rectangle"></div>
+                    <figcaption>2.Hình chữ nhật</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-up"></div>
+                    <figcaption>3.Hình tam giác lên</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-down"></div>
+                    <figcaption>4.Hình tam giác xuống</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-left"></div>
+                    <figcaption>5.Hình tam giác trái</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-right"></div>
+                    <figcaption>6.Hình tam giác phải</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="trapezoid"></div>
+                    <figcaption>7.Hình thang</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-wide"></div>
+                    <figcaption>8.Hình tam giác rộng</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-acute"></div>
+                    <figcaption>9.Hình tam giác nhọn</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="triangle-isosceles"></div>
+                    <figcaption>10.Hình tam giác cân</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="arrow-right"></div>
+                    <figcaption>11.Hình mũi tên phải</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="arrow-left"></div>
+                    <figcaption>12.Hình mũi tên trái</figcaption>
+                </figure>
+                <figure class="shape-item">
+                    <div class="ribbon"></div>
+                    <figcaption>13.Ribbon/Lá cờ</figcaption>
+                </figure>
+                <figure class="f8-group">
+                    <div class="f8-item">
+                        <div class="shape-f">
+                            <div class="f-middle"></div>
+                        </div>
+                        <div class="shape-8">
+                            <div class="eight-middle"></div>
+                        </div>
+                    </div>
+                    <figcaption>14.F8</figcaption>
+                </figure>
+            </div>
+        </section>
+    </body>
+</html>
