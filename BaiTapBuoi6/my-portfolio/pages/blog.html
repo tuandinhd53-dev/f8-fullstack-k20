@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Đinh Tuấn | Thông Tin Profile</title>
+
+        <!-- Material Design Icons  -->
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+        />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body id="top">
+        <!-- Header -->
+        <header class="header header--sticky">
+            <div class="container">
+                <!-- Logo -->
+
+                <div class="container__logo">
+                    <a href="#!"><img src="../img/logo.jpg" alt="logo" /></a>
+                </div>
+
+                <!-- Navigation -->
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <i class="mdi mdi-home"></i>
+                                Home</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./pages/about.html">
+                                <i class="mdi mdi-account"></i>
+                                About</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./pages/skills.html">
+                                <i class="mdi mdi-lightbulb"></i>
+                                Skills</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./pages/projects.html">
+                                <i class="mdi mdi-folder"></i>
+                                Projects</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./pages/blog.html">
+                                <i class="mdi mdi-note-text"></i>
+                                Blog</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./pages/contact.html">
+                                <i class="mdi mdi-email"></i>
+                                Contact</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <!-- Blog Header -->
+
+            <section class="blog-header">
+                <div class="container">
+                    <h1>Hành trình học Fullstack Development</h1>
+
+                    <time datetime="2026-09-05">05-09-2026</time>
+                    <cite>Nhà vua: Đinh Văn Tuấn</cite>
+
+                    <img class="cover" src="../img/cover.png" alt="cover" />
+                </div>
+            </section>
+
+            <!-- Table-of-Contents -->
+
+            <section class="table-of-contents">
+                <div class="container">
+                    <h2>Mục lục</h2>
+                    <div class="container">
+                        <ul>
+                            <li>
+                                <a href="#intro">Giới thiệu</a>
+                            </li>
+                            <li>
+                                <a href="#html-css">Html & Css</a>
+                            </li>
+                            <li>
+                                <a href="#javascript">JavaScript</a>
+                            </li>
+                            <li>
+                                <a href="#code-examples">Code Examples</a>
+                            </li>
+                            <li>
+                                <a href="#references">Tài liệu tham khảo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Content -->
+
+            <section class="blog-content">
+                <div class="container">
+                    <h2>Nội dung</h2>
+                    <!-- intro -->
+
+                    <article id="intro">
+                        <h3>Giới thiệu</h3>
+                        <p>
+                            Frontend Development là lĩnh vực tôi rất yêu thích
+                            trong quá trình học lập trình web.
+                        </p>
+                        <p>
+                            Tôi bắt đầu với
+                            <strong>HTML</strong>
+                            và <strong>CSS</strong> để xây dựng giao diện
+                            website cơ bản.
+                        </p>
+                        <p>
+                            Điều thú vị nhất là khả năng biến ý tưởng thành giao
+                            diện thực tế bằng code.
+                        </p>
+                    </article>
+
+                    <article id="html-css">
+                        <h3>Học HTML & CSS</h3>
+                        <p>
+                            <em>Semantic HTML</em>
+                            giúp website dễ đọc và tối ưu SEO hơn.
+                        </p>
+                        <p>
+                            Tôi thường sử dụng
+                            <mark>Flexbox</mark>
+                            và <mark>Grid</mark>
+                            để xây dựng layout hiện đại.
+                        </p>
+                        <p>
+                            Một số thẻ quan trọng như
+                            <code>section</code>,
+                            <code>article</code>
+                            và <code>nav</code>
+                            giúp cấu trúc website rõ ràng hơn.
+                        </p>
+                    </article>
+
+                    <article id="javascript">
+                        <h3>
+                            Sau khi học HTML và CSS, tôi bắt đầu tìm hiểu
+                            JavaScript
+                        </h3>
+                        <p>
+                            JavaScript giúp website trở nên tương tác hơn thông
+                            qua xử lý DOM và events.
+                        </p>
+                        <p>
+                            Tôi thường dùng
+                            <kbd>Ctrl</kbd> +
+                            <kbd>S</kbd>
+                            để lưu code nhanh trong VS Code.
+                        </p>
+                        <p>
+                            Ví dụ output:
+
+                            <samp> Hello Frontend Developer </samp>
+                        </p>
+                    </article>
+
+                    <article id="code-examples">
+                        <h3>Code Examples</h3>
+
+                        <pre><code>
+&lt;!-- Navigation Menu --&gt;
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href=&quot;#&quot;&gt;
+                Home
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+
+                        <pre><code>
+/* Button Style */
+.btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #0dcaf0;
+    color: #fff;
+}
+</code></pre>
+                    </article>
+
+                    <article id="references">
+                        <h3>Tài liệu tham khảo</h3>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://developer.mozilla.org/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    MDN Web Docs
+                                </a>
+
+                                -
+                                <cite> Mozilla Developer Network </cite>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="https://www.w3schools.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    W3Schools
+                                </a>
+
+                                -
+                                <cite> W3Schools </cite>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="athor-cite">
+                        <img src="../img/avatar.jpg" alt="avatar" />
+
+                        <p>Đinh Văn Tuấn</p>
+
+                        <p>
+                            Frontend Developer Beginner yêu thích thiết kế giao
+                            diện web hiện đại.
+                        </p>
+                        <address>
+                            Email:
+                            <a href="mailto:tuandinhd53@gmail.com"
+                                >tuandinhd53@gmail.com
+                            </a>
+                            Phone: <a href="tel:0961441076">0961441076</a>
+                        </address>
+                    </article>
+
+                    <!-- Back To Top -->
+                    <a class="btn" href="#top"> Lên đầu trang </a>
+                </div>
+            </section>
+
+
+            <!-- Footer -->
+            <footer>
+                <div class="container">
+                    <p>© 2026 Đinh Tuấn. All rights reserved.</p>
+
+                    <div class="social-link">
+                        <a href="#!">
+                            <i class="mdi mdi-facebook"></i>
+                            Facebook,
+                        </a>
+                        <a
+                            style="
+                                background: radial-gradient(
+                                    circle at 30% 107%,
+                                    #fdf497 0%,
+                                    #fdf497 5%,
+                                    #fd5949 45%,
+                                    #d6249f 60%,
+                                    #285aeb 90%
+                                );
+                            "
+                            href="#!"
+                        >
+                            <i class="mdi mdi-instagram"></i>
+                            Instagram,
+                        </a>
+                        <a style="background: rgb(20, 18, 18)" href="#!">
+                            <i class="mdi mdi-twitter"></i>
+                            Twitter,</a
+                        >
+                        <a style="background: rgb(46, 44, 44)" href="#!"
+                            ><i class="mdi mdi-github"></i> Github,</a
+                        >
+                        <a class="background: #0866ff" href="#!"
+                            ><i class="mdi mdi-linkedin"></i> Linkedln</a
+                        >
+                    </div>
+
+                    <div class="anchor-link">
+                        <a href="#top">
+                            <i class="mdi mdi-arrow-right"></i>
+                            Lên đầu trang</a
+                        >
+                    </div>
+                </div>
+            </footer>
+
+            <!-- TODO: Thêm animation -->
+            <!-- TODO: Kết nối form liên hệ -->
+        </main>
+        <script src="./js/script.js"></script>
+    </body>
+</html>

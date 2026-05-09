@@ -726,15 +726,110 @@ CSS SKILLS
 }
 
 .projects-list h2 {
-    color: #4A3737;
+    color: #4a3737;
     margin: 24px 0;
 }
 
 .projects-list a:last-child {
-margin-left: 24px;
-
+    margin-left: 24px;
 }
 
 .projects-list video {
     margin-top: 48px;
+}
+
+/* ============
+ Blog-pages
+ =========== */
+.blog-header {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.blog-header .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cover {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+/*Table-of-Contents */
+
+.table-of-contents {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.table-of-contents .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-of-contents h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.table-of-contents h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+.table-of-contents ul {
+    display: flex;
+    flex-direction: row;
+    gap: 84px;
+}
+
+/* Blog Content */
+
+.blog-content {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.blog-content .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 84px;
+}
+
+.blog-content h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.blog-content h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+.athor-cite img {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    margin-bottom: 80px;
 }
