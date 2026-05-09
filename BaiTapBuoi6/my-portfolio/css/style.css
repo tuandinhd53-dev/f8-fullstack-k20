@@ -679,3 +679,62 @@ CSS SKILLS
     bottom: -12px;
     border-bottom: 3px solid #db2777;
 }
+/* ============
+   PROJIECTS-PAGES
+   =============== */
+
+.projects-pages {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.projects-pages .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-pages h1 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.projects-pages h1::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+}
+
+.projects-list img {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.projects-list h2 {
+    color: #4A3737;
+    margin: 24px 0;
+}
+
+.projects-list a:last-child {
+margin-left: 24px;
+
+}
+
+.projects-list video {
+    margin-top: 48px;
+}
