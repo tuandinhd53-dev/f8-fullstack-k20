@@ -73,10 +73,17 @@ header {
     background: #ffffff;
 }
 
+.header.header--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
 header .container {
     display: flex;
     align-items: center;
     padding: 12px 0;
+
 }
 
 header .container__logo {
@@ -109,14 +116,21 @@ header li a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .hero-title {
     font-size: 2.8rem;
+    
 }
 
 .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 24px;
+    margin-top: 24px;
+    
 }
 
 .btn--cv {
