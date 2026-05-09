@@ -405,12 +405,29 @@ footer a:first-child {
 .quote .conainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-blockquote  {
+.quote h2 {
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.quote h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+blockquote {
     background: linear-gradient(135deg, #ffe4ec, #ffd6eb);
-    color: #8D7A7A;
+    color: #8d7a7a;
     width: 1000px;
     margin: 0 auto;
     padding: 24px 0;
@@ -428,8 +445,44 @@ blockquote  {
 }
 
 cite {
-
     font-size: 16px;
     font-weight: 600;
     color: #ff4d94;
 }
+
+/* Time Line */
+
+.timeline {
+    padding: 160px;
+    border-bottom: 1px solid #f3d7df;
+}
+
+.timeline .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.timeline  h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.timeline h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+.timeline p {
+    margin-bottom: 24px;
+}
+
+
