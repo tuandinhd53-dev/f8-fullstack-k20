@@ -487,6 +487,7 @@ cite {
 /* HOBBIES */
 .hobbies {
     padding: 160px 0;
+    border-bottom: 1px solid #f3d7df;
 }
 
 .hobbies .container {
@@ -502,7 +503,6 @@ cite {
     border-bottom: 3px solid #db2777;
 }
 
-
 .hobbies h2::after {
     content: "";
     position: absolute;
@@ -517,6 +517,34 @@ cite {
 .hobbies li {
     margin-bottom: 24px;
     margin-right: 48px;
-    
 }
 
+/* Video */
+
+.video {
+    padding: 160px 0;
+}
+
+.video .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.video h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
