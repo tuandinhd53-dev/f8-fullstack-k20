@@ -648,3 +648,34 @@ CSS SKILLS
     bottom: -12px;
     border-bottom: 3px solid #db2777;
 }
+
+/* Learning */
+
+.learning {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.learning .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.learning h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.learning h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
