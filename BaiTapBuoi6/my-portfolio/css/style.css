@@ -585,5 +585,66 @@ CSS SKILLS
 }
 
 .skills-pages .skills-list article > * {
-     margin-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+/* tools */
+.tools {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.tools .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tools h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.tools h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+/* Certificates*/
+
+.certificates {
+    border-bottom: 1px solid #f3d7df;
+    padding: 160px 0;
+}
+
+.certificates .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificates h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+.certificates h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
 }
