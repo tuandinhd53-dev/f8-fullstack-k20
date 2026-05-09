@@ -129,7 +129,7 @@ header li a {
 
 /*About Review  */
 .about {
-    padding: 160px;
+    padding: 160px 0;
     border-bottom: 1px solid #f3d7df;
 }
 .about .container {
@@ -233,7 +233,7 @@ header li a {
 /* Projects Preview */
 
 .projects {
-    padding: 160px;
+    padding: 160px 0;
     border-bottom: 1px solid #f3d7df;
 }
 
@@ -300,7 +300,7 @@ header li a {
 
 /* Footer */
 footer {
-    padding: 160px;
+    padding: 160px 0;
 
     background: #fff0f3;
 }
@@ -398,7 +398,7 @@ footer a:first-child {
 
 /* QUOTE */
 .quote {
-    padding: 160px;
+    padding: 160px 0;
     border-bottom: 1px solid #f3d7df;
 }
 
@@ -453,7 +453,7 @@ cite {
 /* Time Line */
 
 .timeline {
-    padding: 160px;
+    padding: 160px 0;
     border-bottom: 1px solid #f3d7df;
 }
 
@@ -464,7 +464,7 @@ cite {
     text-align: center;
 }
 
-.timeline  h2 {
+.timeline h2 {
     margin-bottom: 84px;
     position: relative;
     border-bottom: 3px solid #db2777;
@@ -484,5 +484,39 @@ cite {
 .timeline p {
     margin-bottom: 24px;
 }
+/* HOBBIES */
+.hobbies {
+    padding: 160px 0;
+}
 
+.hobbies .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hobbies h2 {
+    margin-bottom: 84px;
+    position: relative;
+    border-bottom: 3px solid #db2777;
+}
+
+
+.hobbies h2::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translatex(-50%);
+    height: 2px;
+    bottom: -12px;
+    border-bottom: 3px solid #db2777;
+}
+
+.hobbies li {
+    margin-bottom: 24px;
+    margin-right: 48px;
+    
+}
 
