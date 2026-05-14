@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 1.6rem;
+}
+
+/*  */
+
+.container {
+    width: 1440px;
+    height: 1039px;
+    background: #000000;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 24px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.card {
+    border-radius: 32px;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__burger-title,
+.card__burger-desc,
+.card__restro-title,
+.card__restro-desc,
+.card__menu-title,
+.card__selas-title,
+.card__selas-desc,
+.card__ratings-title {
+    color: #fff;
+    margin-left: 20px;
+}
+
+/*  Card Item 1 */
+
+.card__item-burger {
+    grid-column: 1;
+    grid-row: 1/3;
+    background: #ff6400;
+    display: grid;
+}
+
+.card__burger-title,
+.card__burger-desc {
+    margin-left: 20px;
+}
+
+/*  Card Item 2 */
+
+.card__item-phone {
+    background: #8bb8f6;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+/*  Card Item 3 */
+
+.card__item-restro {
+    background: #8bb8f6;
+    grid-row: 1;
+    grid-column: 3;
+}
+
+.card__restro-title,
+.card__restro-desc {
+    font-size: 2rem;
+}
+
+/*  Card Item 4 */
+.card__item-menu {
+    background: #ff6400;
+    grid-column: 4;
+    grid-row: 1/3;
+}
+
+.card__menu-title {
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+/*  Card Item 5 */
+.card__item-user {
+    background: #8bb8f6;
+    grid-column: 1;
+    grid-row: 3/5;
+    position: relative;
+}
+
+.card__user-desc {
+    color: #ff6400;
+    background: #fff;
+    border-radius: 999px;
+    width: 140px;
+}
+
+.card__user-1 {
+    position: absolute;
+    left: 50px;
+    top: 200px;
+}
+.card__user-2 {
+    position: absolute;
+    left: 160px;
+    top: 280px;
+}
+.card__user-3 {
+    position: absolute;
+    left: 80px;
+    bottom: 80px;
+}
+
+/*  Card Item 6 */
+.card__item-selas {
+    background: #ff6400;
+    grid-column: 2/4;
+    grid-row: 2/4;
+}
+
+.card__selas-title,
+.card__selas-desc {
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+/*  Card Item 7 */
+.card__item-oder {
+    background: #8bb8f6;
+    grid-column: 4;
+    grid-row: 3/4;
+}
+
+/*  Card Item 8 */
+.card__item-ratings {
+    background: #ff6400;
+    grid-column: 2;
+    grid-row: 4/5;
+}
+
+/*  Card Item 9 */
+.card__item-map {
+    background: #ff6400;
+    grid-column: 3/5;
+}
