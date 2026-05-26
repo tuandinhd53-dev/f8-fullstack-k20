@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- Reset -->
+        <link rel="stylesheet" href="./reset.css" />
+
+        <!-- Style -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Material Design Icons -->
+        <link
+            rel="stylesheet"
+            href=" https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+        />
+
+        <!-- Responsive -->
+        <link rel="stylesheet" href="./responsive.css" />
+    </head>
+    <body>
+        <!-- Header -->
+
+        <!-- Header Desktop -->
+        <header class="header">
+            <img
+                src="https://files.fullstack.edu.vn/f8-prod/organization-logos/694743c405102.png"
+                alt="Logi"
+                class="header__logo"
+            />
+
+            <div class="header__nav">
+                <ul class="nav__list">
+                    <li><a href="#!" class="nav__link">Link 1</a></li>
+                    <li><a href="#!" class="nav__link">Link 2</a></li>
+                    <li><a href="#!" class="nav__link">Link 3</a></li>
+                </ul>
+            </div>
+
+            <label for="menu-check" class="header__hamburger">
+                <span class="mdi mdi-menu"></span>
+            </label>
+
+            <!-- Tablet/Mobile Menu -->
+        </header>
+
+        <!-- Header Tablet/Mobile  -->
+        <div class="header-mobi">
+            <!-- Check Menu -->
+            <input type="checkbox" hidden id="menu-check" class="menu__check" />
+            <!-- Overlay -->
+            <label for="menu-check" class="menu__overlay"></label>
+            <!-- Menu -->
+            <div class="menu__drawer">
+                <div class="nav__close">
+                    <label for="menu-check" class="nav__close-btn">
+                        <span class="mdi mdi-close"></span>
+                    </label>
+                </div>
+
+                <ul class="nav__mobi">
+                    <li class="nav__mobi--list">
+                        <a href="#!" class="nav__link">Link 1</a>
+                    </li>
+                    <li class="nav__mobi--list">
+                        <a href="#!" class="nav__link">Link 2</a>
+                    </li>
+                    <li class="nav__mobi--list">
+                        <a href="#!" class="nav__link">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container"></div>
+    </body>
+</html>

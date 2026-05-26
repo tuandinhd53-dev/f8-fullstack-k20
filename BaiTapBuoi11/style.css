@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+/*  */
+.header {
+    background: #000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header__logo {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__link {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
