@@ -9,7 +9,7 @@ html {
 body {
     font-size: 1.6rem;
 }
-/*  */
+/* Header */
 .header {
     background: #000;
     height: 80px;
@@ -24,6 +24,7 @@ body {
     object-fit: cover;
     width: 40px;
     height: 40px;
+    z-index: 1001;
 }
 
 .nav__list {
@@ -34,10 +35,69 @@ body {
     color: white;
     padding: 10px;
     text-decoration: none;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .container {
-    width: 1400px;
+    max-width: 1400px;
+    min-height: 400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    column-gap: 1.5rem;
 }
+
+/* Container */
+
+.container__content {
+    flex: 1;
+}
+
+.container__sidebar {
+    width: 300px;
+    min-height: 400px;
+    background: #3a3a3a;
+}
+
+.sidebar__desc {
+    margin: 12px ;
+    color: white;
+    line-height: 1.4;
+}
+
+.container__heading {
+    font-size: 2rem;
+    padding: 10px 20px;
+}
+
+.cards {
+    font-size: 1.25rem;
+}
+
+.container__desc + .container__desc {
+    margin-top: 20px;
+}
+
+.cards {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card__item {
+    width: calc((100% - 2rem) / 3);
+    border: 2px solid black;
+}
+
+.card__item--heading {
+    background: #3a3a3a;
+    padding: 8px 4px;
+    color: white;
+}
+
+.card__item--desc {
+    margin: 8px 4px;
+}
+
