@@ -1,7 +1,8 @@
 /* Desktop */
 @media screen and (min-width: 769px) {
     .header__hamburger,
-    .nav__close ,.menu__drawer {
+    .nav__close,
+    .menu__drawer {
         display: none;
     }
 }
@@ -25,7 +26,7 @@
         z-index: 998;
         visibility: hidden;
         opacity: 0;
-        transition: transform 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .menu__drawer {
@@ -85,6 +86,14 @@
         padding: 1rem;
         margin-left: 8px;
     }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .container__heading {
+        padding: 1rem;
+    }
 }
 
 /* Tablet */
@@ -93,6 +102,14 @@
         width: 300px;
         padding: 2rem;
     }
+
+    .container__sidebar {
+        width: 250px;
+    }
+
+    .card__item {
+        width: calc((100% - 1rem) / 2);
+    }
 }
 
 /* Mobile */
@@ -100,5 +117,28 @@
     .menu__drawer {
         width: 280px;
         padding: 2rem 1.5rem;
+    }
+
+    .container {
+        max-width: 100%;
+
+        flex-direction: column;
+    }
+
+    .container__content {
+        width: 100%;
+    }
+
+    .container__heading {
+        font-size: 1.5rem;
+    }
+
+    .container__sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .card__item {
+        width: 100%;
     }
 }

@@ -8,10 +8,16 @@ html {
 
 body {
     font-size: 1.6rem;
+    background: #e8e8e8;
+    transition: background-color 0.3s ease;
+}
+
+p {
+    color: #555;
 }
 /* Header */
 .header {
-    background: #000;
+    background: #3a3a3a;
     height: 80px;
     display: flex;
     align-items: center;
@@ -33,10 +39,12 @@ body {
 
 .nav__link {
     color: white;
-    padding: 10px;
+    padding: 1rem;
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Container */
 
 .container {
     max-width: 1400px;
@@ -48,20 +56,18 @@ body {
     column-gap: 1.5rem;
 }
 
-/* Container */
-
 .container__content {
     flex: 1;
 }
 
 .container__sidebar {
-    width: 300px;
-    min-height: 400px;
     background: #3a3a3a;
+    min-height: 400px;
+    width: 300px;
 }
 
 .sidebar__desc {
-    margin: 12px ;
+    margin: 12px;
     color: white;
     line-height: 1.4;
 }
@@ -69,10 +75,6 @@ body {
 .container__heading {
     font-size: 2rem;
     padding: 10px 20px;
-}
-
-.cards {
-    font-size: 1.25rem;
 }
 
 .container__desc + .container__desc {
@@ -83,7 +85,7 @@ body {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .card__item {
@@ -91,13 +93,73 @@ body {
     border: 2px solid black;
 }
 
-.card__item--heading {
+.card__header {
     background: #3a3a3a;
     padding: 8px 4px;
     color: white;
+    font-size: 1.25rem;
 }
 
 .card__item--desc {
     margin: 8px 4px;
 }
 
+.dark-mode-toggle {
+    color: white;
+    font-family: "Material Design Icons";
+    font-size: 2.4rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle::before {
+    content: "\F0594";
+}
+
+body:has(#dark-mode-toggle:checked) .dark-mode-toggle::before {
+    content: "\F0599";
+}
+
+body:has(#dark-mode-toggle:checked) {
+    background: #1a1a1a;
+}
+
+body:has(#dark-mode-toggle:checked) .card__item {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body:has(#dark-mode-toggle:checked) .card__header,
+body:has(#dark-mode-toggle:checked) .container__sidebar {
+    background: #1f1f1f;
+}
+
+body:has(#dark-mode-toggle:checked) .header {
+    background: #0d0d0d;
+}
+
+body:has(#dark-mode-toggle:checked) .nav__link,
+body:has(#dark-mode-toggle:checked) .container__heading,
+body:has(#dark-mode-toggle:checked) .container__desc,
+body:has(#dark-mode-toggle:checked) .card__item--desc {
+    color: #e0e0e0;
+}
+
+.header,
+.container__sidebar,
+.card__item {
+    transition: background-color 0.3s ease;
+}
+
+.container__heading,
+.container__desc,
+.card__header,
+.card__item--desc,
+.nav__link {
+    transition: color 0.3s ease;
+}
