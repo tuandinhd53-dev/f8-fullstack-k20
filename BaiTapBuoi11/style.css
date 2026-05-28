@@ -26,6 +26,7 @@ p {
 }
 
 .header__logo {
+    position: relative;
     border-radius: 50%;
     object-fit: cover;
     width: 40px;
@@ -35,11 +36,12 @@ p {
 
 .nav__list {
     display: flex;
+    gap: 2rem;
 }
 
 .nav__link {
     color: white;
-    padding: 1rem;
+    
     text-decoration: none;
     cursor: pointer;
 }
