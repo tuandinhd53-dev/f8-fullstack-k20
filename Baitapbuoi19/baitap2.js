@@ -92,70 +92,123 @@ const orders = [
 ];
 
 function getCustomerStatistics(customers, products, orders) {
-    return customers
-        .map(function (customer) {
-            const customerOrders = orders.filter(function (order) {
-                return order.customerId === customer.id;
-            });
-
-            // Lấy tất cả items
-            const allItems = customerOrders
-                .map(function (order) {
-                    return order.items;
-                })
-                .reduce(function (total, items) {
-                    return total.concat(items);
-                }, []);
-
-            // Gộp  trùng nhau
-            const mergedItems = allItems.reduce(function (total, item) {
-                const existingItem = total.find(function (product) {
-                    return product.productId === item.productId;
-                });
-
-                if (existingItem) {
-                    existingItem.quantity += item.quantity;
-                } else {
-                    total.push({
-                        productId: item.productId,
-                        quantity: item.quantity,
-                    });
+    let result = [];
+    // Duyệt customer
+    for (const customer of customers) {
+        let totalSpent = 0;
+        const customerProducts = [];
+        // Duyệt oder
+        for (const oder of orders) {
+            // Duyệt oder có thuộc customer không
+            if (customer.id === oder.customerId) {
+                // Nếu có thì duyệt item
+                for (const item of oder.items) {
+                    // Tìm product trong product
+                    const product = products.find(
+                        (p) => p.id === item.productId,
+                    );
+                    // Cộng dồn tính total
+                    totalSpent += product.price * item.quantity;
+                    // Tìm xem customerProducts đã có sản phẩm này chưa
+                    const found = customerProducts.find(
+                        (spent) => product.name === spent.name,
+                    );
+                    // Nếu có
+                    if (found) {
+                        found.quantity += item.quantity;
+                        found.totalSpent += product.price * item.quantity;
+                    } else {
+                        customerProducts.push({
+                            name: product.name,
+                            quantity: item.quantity,
+                            totalSpent: product.price * item.quantity,
+                        });
+                    }
                 }
+            }
+        }
 
-                return total;
-            }, []);
-
-            // Đổi thành name và tính totalSpent
-            const productList = mergedItems
-                .map(function (item) {
-                    const productInfo = products.find(function (product) {
-                        return product.id === item.productId;
-                    });
-
-                    return {
-                        name: productInfo.name,
-                        quantity: item.quantity,
-                        totalSpent: productInfo.price * item.quantity,
-                    };
-                })
-                .sort(function (a, b) {
-                    return b.totalSpent - a.totalSpent;
-                });
-
-            // Tổng tiền customer
-            const totalSpent = productList.reduce(function (total, product) {
-                return total + product.totalSpent;
-            }, 0);
-
-            return {
-                id: customer.id,
-                name: customer.name,
-                totalSpent: totalSpent,
-                products: productList,
-            };
-        })
-        .sort(function (a, b) {
-            return b.totalSpent - a.totalSpent;
+        // sắp xếp giảm dần
+        customerProducts.sort((a, b) => b.totalSpent - a.totalSpent);
+        // Thêm vào mảng trả về
+        result.push({
+            id: customer.id,
+            name: customer.name,
+            totalSpent: totalSpent,
+            products: customerProducts,
         });
+    }
+    // Trả về mảng và sắp xếp
+    return result.sort((a, b) => b.totalSpent - a.totalSpent);
 }
+
 console.log(getCustomerStatistics(customers, products, orders));
+
+function getCustomerStatistics(customers, products, orders) {
+//     return customers
+//         .map(function (customer) {
+//             const customerOrders = orders.filter(function (order) {
+//                 return order.customerId === customer.id;
+//             });
+
+//             // Lấy tất cả items
+//             const allItems = customerOrders
+//                 .map(function (order) {
+//                     return order.items;
+//                 })
+//                 .reduce(function (total, items) {
+//                     return total.concat(items);
+//                 }, []);
+
+//             // Gộp  trùng nhau
+//             const mergedItems = allItems.reduce(function (total, item) {
+//                 const existingItem = total.find(function (product) {
+//                     return product.productId === item.productId;
+//                 });
+
+//                 if (existingItem) {
+//                     existingItem.quantity += item.quantity;
+//                 } else {
+//                     total.push({
+//                         productId: item.productId,
+//                         quantity: item.quantity,
+//                     });
+//                 }
+
+//                 return total;
+//             }, []);
+
+//             // Đổi thành name và tính totalSpent
+//             const productList = mergedItems
+//                 .map(function (item) {
+//                     const productInfo = products.find(function (product) {
+//                         return product.id === item.productId;
+//                     });
+
+//                     return {
+//                         name: productInfo.name,
+//                         quantity: item.quantity,
+//                         totalSpent: productInfo.price * item.quantity,
+//                     };
+//                 })
+//                 .sort(function (a, b) {
+//                     return b.totalSpent - a.totalSpent;
+//                 });
+
+//             // Tổng tiền customer
+//             const totalSpent = productList.reduce(function (total, product) {
+//                 return total + product.totalSpent;
+//             }, 0);
+
+//             return {
+//                 id: customer.id,
+//                 name: customer.name,
+//                 totalSpent: totalSpent,
+//                 products: productList,
+//             };
+//         })
+//         .sort(function (a, b) {
+//             return b.totalSpent - a.totalSpent;
+//         });
+// }
+// console.log(getCustomerStatistics(customers, products, orders));
