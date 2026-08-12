@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+            @layer components {
+                .btn {
+                    @apply px-4 py-2 bg-rose-500 text-white cursor-pointer rounded-lg transition hover:bg-rose-300  transition-colors duration-300 ease-in-out;
+                }
+                .btn-fp {
+                    @apply px-4 py-2 bg-violet-500 text-white cursor-pointer rounded-lg transition hover:bg-violet-600  transition-colors duration-300 ease-in-out;
+                }
+
+                .info-item {
+                    @apply py-3 border border-black/50 px-2 rounded-lg;
+                }
+            }
+        </style>
+    </head>
+    <body class="p-10">
+        <!-- Trang chủ -->
+        <div
+            id="home-view"
+            class="max-w-2xl px-10 py-8 mx-auto bg-rose-100 rounded-xl"
+        >
+            <!-- Nav -->
+            <header>
+                <button id="" class="btn">Home</button>
+                <button id="fingerprintBtn" class="btn bg-gray-400 text-black">
+                    Fingerprinting
+                </button>
+            </header>
+
+            <div class="my-6 space-y-2">
+                <h1 class="text-2xl font-bold text-rose-600">
+                    BOM DEVICE INFO
+                </h1>
+
+                <!-- Thông tin  -->
+                <div class="info-item">
+                    <span class="label">Vị trí người dùng:</span>
+
+                    <span id="location" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+                <div class="info-item">
+                    <span class="label">Trạng thái:</span>
+                    <span
+                        id="status-dot"
+                        class="inline-block w-2 h-2 rounded-full bg-green-500"
+                    ></span>
+                    <span id="status" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+                <div class="info-item">
+                    <span class="label">Tên trình duyệt:</span>
+                    <span id="browser" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+                <div class="info-item">
+                    <span class="label">Tên hệ điều hành:</span>
+                    <span id="os" class="text-rose-600 font-semibold">--</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Danh sách ngôn ngữ hiện tại:</span>
+                    <span id="languages" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+                <div class="info-item">
+                    <span class="label">Kích thước màn hình:</span>
+                    <span id="screen" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+                <div class="info-item">
+                    <span class="label">Hướng màn hình:</span>
+                    <span id="orientation" class="text-rose-600 font-semibold"
+                        >--</span
+                    >
+                </div>
+            </div>
+            <!-- Banner -->
+            <div>
+                <a
+                    class="relative hover:opacity-90 transition"
+                    id="banner"
+                    href="campaign.html?utm_source=dinh_van_tuan&utm_campaign=uchihahaha"
+                >
+                    <h2
+                        class="text-base font-bold text-blue-600 mb-2 absolute top-1/2 left-1/2 -translate-x-2/3"
+                    >
+                        Banner
+                    </h2>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5d9tCWm23tMIi8Ybee3nJD3xiyZgjm2lAbrNLHR-6aM8FoLzpHv2xCpHA&s=10"
+                        alt="banner"
+                    />
+                </a>
+            </div>
+        </div>
+
+        <!-- Trang Fingerprinting -->
+        <section
+            id="fingerprint-view"
+            class="hidden bg-violet-300 max-w-2xl px-10 py-8 mx-auto rounded-xl"
+        >
+            <header class="mb-6">
+                <button
+                    id="homeBtn"
+                    class="btn-fp mr-4 bg-blue-400 text-blue-800"
+                >
+                    Home
+                </button>
+                <button id="" class="btn-fp">Fingerprinting</button>
+            </header>
+
+            <div
+                id="page-fp"
+                class="flex flex-col items-center w-full bg-violet-100 p-5 rounded space-y-5"
+            >
+                <h2 class="font-bold text-lg">Trang Fingerprint</h2>
+
+                <p class="text-sm text-gray-600">
+                    Chuỗi fingerprint lấy từ dữ liệu trong
+                    <code>history.state</code>
+                    :
+                </p>
+
+                <div
+                    id="fp-result"
+                    class="p-3 bg-gray-900 text-yellow-400 font-mono text-sm rounded break-all"
+                >
+                    Chưa có dữ liệu...
+                </div>
+
+                <button
+                    id="btn-back"
+                    class="px-4 py-2 bg-blue-600 text-white rounded transition-all hover:opacity-70"
+                >
+                    Quay về trang chủ
+                </button>
+            </div>
+        </section>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
