@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Danh sách sản phẩm</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <script
+            src="https://kit.fontawesome.com/df249086cd.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+
+    <body class="min-h-screen bg-[#FFF5F8] text-[#4D3D3D] antialiased">
+        <!-- Header -->
+        <header class="border-b border-[#F3C4D2] bg-white/80 backdrop-blur-sm">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <p
+                
+                    class="text-center text-xs font-medium tracking-wide text-[#8A6F76] sm:text-sm"
+                >
+                    Buổi 28 · Async JavaScript
+                </p>
+
+                <div
+                    class="mt-3 flex flex-col items-center gap-2 sm:flex-row sm:justify-between"
+                >
+                    <h1
+                        class="text-2xl font-bold tracking-tight text-[#4D3D3D] sm:text-3xl"
+                    >
+                        Danh sách sản phẩm
+                    </h1>
+
+                    <p
+                        id="product-count"
+                        class="rounded-full bg-[#FFF0F4] px-3 py-1 text-xs font-medium text-[#E94F7D] sm:text-sm"
+                    >
+                        0 sản phẩm
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+            <!-- Filters -->
+            <section
+                aria-label="Bộ lọc sản phẩm"
+                class="rounded-xl border border-[#F3C4D2] bg-white p-4 shadow-sm sm:p-5"
+            >
+                <div
+                    class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                >
+                    <!-- Search -->
+                    <label class="sm:col-span-2">
+                        <span
+                            class="mb-1.5 block text-sm font-semibold text-[#4D3D3D]"
+                        >
+                            Tìm kiếm
+                        </span>
+
+                        <div class="relative">
+                            <i
+                                class="fa-solid fa-magnifying-glass pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs text-[#A89B9B]"
+                                aria-hidden="true"
+                            ></i>
+
+                            <input
+                                id="search-input"
+                                type="search"
+                                placeholder="Nhập từ khóa sản phẩm..."
+                                autocomplete="off"
+                                class="w-full rounded-md border border-[#E7E2E2] bg-white py-2.5 pl-9 pr-3 text-sm text-[#4D3D3D] shadow-sm transition focus:border-[#E94F7D] focus:ring-2 focus:ring-[#E94F7D]/20 focus:outline-none"
+                            />
+                        </div>
+                    </label>
+
+                    <!-- Category -->
+                    <label for="category-filter">
+                        <span
+                            class="mb-1.5 block text-sm font-semibold text-[#4D3D3D]"
+                        >
+                            Danh mục
+                        </span>
+
+                        <select
+                            id="category-filter"
+                            class="w-full cursor-pointer rounded-md border border-[#E7E2E2] bg-white px-3 py-2.5 text-sm text-[#4D3D3D] shadow-sm transition focus:border-[#E94F7D] focus:ring-2 focus:ring-[#E94F7D]/20 focus:outline-none"
+                        >
+                            <option value="">Tất cả danh mục</option>
+                        </select>
+                    </label>
+
+                    <!-- Sort -->
+                    <label for="sort-select">
+                        <span
+                            class="mb-1.5 block text-sm font-semibold text-[#4D3D3D]"
+                        >
+                            Sắp xếp
+                        </span>
+
+                        <select
+                            id="sort-select"
+                            class="w-full cursor-pointer rounded-md border border-[#E7E2E2] bg-white px-3 py-2.5 text-sm text-[#4D3D3D] shadow-sm transition focus:border-[#E94F7D] focus:ring-2 focus:ring-[#E94F7D]/20 focus:outline-none"
+                        >
+                            <option value="">Mới nhất</option>
+
+                            <option value="sort-asc">Title: A → Z</option>
+
+                            <option value="sort-desc">Title: Z → A</option>
+
+                            <option value="price-asc">Giá: thấp → cao</option>
+
+                            <option value="price-desc">Giá: cao → thấp</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Loading / Error -->
+            <section aria-live="polite" class="mt-6">
+                <!-- Loading -->
+                <div
+                    id="loading"
+                    class="hidden rounded-xl border border-[#F3C4D2] bg-white px-4 py-10 text-center shadow-sm"
+                >
+                    <div
+                        class="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-[#FFE1EC] border-t-[#E94F7D]"
+                    ></div>
+
+                    <p class="text-sm font-medium text-[#8A6F76]">
+                        Đang tải sản phẩm...
+                    </p>
+                </div>
+
+                <!-- Error -->
+                <div
+                    id="error"
+                    class="hidden rounded-xl border border-red-200 bg-white px-4 py-8 text-center shadow-sm"
+                >
+                    <i
+                        class="fa-solid fa-circle-exclamation mb-3 text-2xl text-red-400"
+                        aria-hidden="true"
+                    ></i>
+
+                    <p class="text-sm font-medium text-red-500">
+                        Không thể tải sản phẩm.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="mt-4 rounded-md bg-[#E94F7D] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#D94370] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E94F7D]"
+                    >
+                        Thử lại
+                    </button>
+                </div>
+            </section>
+
+            <!-- Products -->
+            <section
+                id="product-list"
+                aria-label="Danh sách sản phẩm"
+                class="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4"
+            >
+                <!-- Product cards được render bằng JS -->
+            </section>
+
+            <!-- Empty state -->
+            <section
+                id="empty-state"
+                class="mt-8 hidden rounded-xl border border-[#F3C4D2] bg-white px-4 py-12 text-center shadow-sm"
+            >
+                <div
+                    class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF0F4]"
+                >
+                    <i
+                        class="fa-solid fa-box-open text-xl text-[#E94F7D]"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h2 class="mt-4 text-base font-bold text-[#4D3D3D]">
+                    Không tìm thấy sản phẩm
+                </h2>
+
+                <p class="mt-1 text-sm text-[#8A6F76]">
+                    Hãy thử từ khóa hoặc danh mục khác.
+                </p>
+            </section>
+        </main>
+
+        <!-- Pagination -->
+        <nav
+            id="pagination"
+            class="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+            <!-- Nút trang trước -->
+            <button
+                id="prev-page"
+                type="button"
+                class="rounded-xl border border-[#E8DADA] bg-white px-4 py-2.5 text-sm font-medium text-[#4D3D3D] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#FFF5F5] hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+                ← Trước
+            </button>
+
+            <!-- Số trang hiện tại -->
+            <span
+                id="page-info"
+                class="rounded-xl bg-[#FFF0F0] px-4 py-2.5 text-sm font-semibold text-[#4D3D3D]"
+            >
+                Đang tải...
+            </span>
+
+            <!-- Nhập trang -->
+            <div class="flex items-center gap-2">
+                <input
+                    id="page-input"
+                    type="number"
+                    min="1"
+                    placeholder="Trang"
+                    aria-label="Nhập số trang"
+                    class="w-20 rounded-xl border border-[#E8DADA] bg-white px-3 py-2.5 text-center text-sm text-[#4D3D3D] outline-none transition placeholder:text-[#B9A5A5] focus:border-[#D99A9A] focus:ring-2 focus:ring-[#F3D5D5]"
+                />
+
+                <button
+                    id="go-page"
+                    type="button"
+                    class="rounded-xl bg-[#4D3D3D] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#604B4B] hover:shadow-md active:translate-y-0"
+                >
+                    Đi
+                </button>
+            </div>
+
+            <!-- Nút trang sau -->
+            <button
+                id="next-page"
+                type="button"
+                class="rounded-xl border border-[#E8DADA] bg-white px-4 py-2.5 text-sm font-medium text-[#4D3D3D] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#FFF5F5] hover:shadow-md active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+                Tiếp →
+            </button>
+        </nav>
+
+        <!-- Footer -->
+        <footer class="mt-4 border-t border-[#F3C4D2] bg-white">
+            <div
+                class="mx-auto max-w-7xl px-4 py-6 text-center sm:px-6 lg:px-8"
+            >
+                <p class="text-xs text-[#A89B9B]">© 2026 Product Store</p>
+            </div>
+        </footer>
+
+        <script src="./js/products.js"></script>
+    </body>
+</html>
