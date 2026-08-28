@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Spotify - Log in</title>
+
+        <!-- Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+
+    <body class="bg-[#121212] font-[Inter] tracking-tight">
+        <div class="min-h-screen text-white">
+            <!-- Logo -->
+            <header class="flex justify-center pt-8">
+                <a href="./index.html" aria-label="Spotify Home">
+                    <svg
+                        role="img"
+                        viewBox="0 0 26 26"
+                        class="h-10 w-10 fill-white"
+                        aria-label="Spotify"
+                    >
+                        <title>Spotify</title>
+
+                        <path
+                            d="M13.427.01C6.805-.253 1.224 4.902.961 11.524.698 18.147 5.853 23.728 12.476 23.99c6.622.263 12.203-4.892 12.466-11.514S20.049.272 13.427.01m5.066 17.579a.717.717 0 0 1-.977.268 14.4 14.4 0 0 0-5.138-1.747 14.4 14.4 0 0 0-5.42.263.717.717 0 0 1-.338-1.392c1.95-.474 3.955-.571 5.958-.29 2.003.282 3.903.928 5.647 1.92a.717.717 0 0 1 .268.978m1.577-3.15a.93.93 0 0 1-1.262.376 17.7 17.7 0 0 0-5.972-1.96 17.7 17.7 0 0 0-6.281.238.93.93 0 0 1-1.11-.71.93.93 0 0 1 .71-1.11 19.5 19.5 0 0 1 6.94-.262 19.5 19.5 0 0 1 6.599 2.165c.452.245.62.81.376 1.263m1.748-3.551a1.147 1.147 0 0 1-1.546.488 21.4 21.4 0 0 0-6.918-2.208 21.4 21.4 0 0 0-7.259.215 1.146 1.146 0 0 1-.456-2.246 23.7 23.7 0 0 1 8.034-.24 23.7 23.7 0 0 1 7.657 2.445c.561.292.78.984.488 1.546"
+                        />
+                    </svg>
+                </a>
+            </header>
+
+            <!-- Main -->
+            <main class="flex justify-center px-6 py-10">
+                <section class="w-full max-w-[324px]">
+                    <!-- Title -->
+                    <div class="mb-8 text-center">
+                        <h1
+                            class="text-[48px] font-bold leading-[1.1] tracking-[-1px]"
+                        >
+                            Welcome back!
+                        </h1>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="space-y-5">
+                        <!-- Email -->
+                        <div>
+                            <label
+                                for="email"
+                                class="mb-2 block text-sm font-bold"
+                            >
+                                E-mail
+                            </label>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                class="h-12 w-full rounded-md border border-[#727272] bg-[#121212] px-3 text-base text-white outline-none transition hover:border-white focus:border-2 focus:border-white"
+                            />
+
+                            <p
+                                id="email-error"
+                                class="mt-2 hidden text-sm text-red-500"
+                            ></p>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label
+                                for="password"
+                                class="mb-2 block text-sm font-bold"
+                            >
+                                Password
+                            </label>
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                autocomplete="current-password"
+                                class="h-12 w-full rounded-md border border-[#727272] bg-[#121212] px-3 text-base text-white outline-none transition hover:border-white focus:border-2 focus:border-white"
+                            />
+
+                            <p
+                                id="password-error"
+                                class="mt-2 hidden text-sm text-red-500"
+                            ></p>
+                        </div>
+
+                        <!-- Forgot Password -->
+                        <div>
+                            <a
+                                href="#!"
+                                id="forgot-password"
+                                class="text-sm font-bold underline hover:text-[#1ed760]"
+                            >
+                                Forgot your password?
+                            </a>
+                        </div>
+
+                        <!-- Login Button -->
+                        <button
+                            id="login-button"
+                            type="submit"
+                            class="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#1ed760] text-sm font-bold text-black transition hover:scale-[1.02] hover:bg-[#1fdf64] active:scale-100 disabled:cursor-not-allowed disabled:opacity-70"
+                        >
+                            <span id="login-button-text">Log in</span>
+
+                            <span
+                                id="login-loading"
+                                class="hidden h-5 w-5 animate-spin rounded-full border-2 border-black border-t-transparent"
+                            ></span>
+                        </button>
+                    </form>
+
+                    <!-- API Error -->
+                    <p
+                        id="login-error"
+                        class="mt-4 hidden text-center text-sm text-red-500"
+                    ></p>
+
+                    <!-- Success -->
+                    <p
+                        id="login-success"
+                        class="mt-4 hidden text-center text-sm text-[#1ed760]"
+                    ></p>
+
+                    <!-- Divider -->
+                    <div class="my-8 flex items-center gap-4">
+                        <div class="h-px flex-1 bg-[#727272]"></div>
+
+                        <span class="text-sm text-[#b3b3b3]">Or</span>
+
+                        <div class="h-px flex-1 bg-[#727272]"></div>
+                    </div>
+
+                    <!-- Register -->
+                    <div class="text-center">
+                        <p class="text-sm text-[#b3b3b3]">
+                            Don't have an account yet?
+                        </p>
+
+                        <a
+                            href="./register.html"
+                            id="register-link"
+                            class="mt-2 inline-block text-sm font-bold underline hover:text-[#1ed760]"
+                        >
+                            Register
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="mt-10 px-6 pb-8">
+                <div class="mx-auto max-w-[300px] text-center">
+                    <p class="text-[11px] leading-4 text-[#b3b3b3]">
+                        This website is protected by reCAPTCHA and complies with
+                        Google's
+                        <a href="#!" class="underline hover:text-white">
+                            Privacy Policy
+                        </a>
+                        and
+                        <a href="#!" class="underline hover:text-white">
+                            Terms of Service.
+                        </a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Login JavaScript -->
+         <script src="./js/api.js"></script>
+        <script src="./js/login.js"></script>
+    </body>
+</html>
