@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+    --background-primary: #000;
+    --color-primary: #a0a0a0;
+    
+}
+
+@layer base {
+    body {
+        background-color: var(--background-primary);
+        color: var(--color-primary);
+        font-family: "Inter", sans-serif;
+    }
+}
+
+@layer components {
+    .tooltip {
+        @apply relative;
+    }
+
+    .tooltip::after {
+        content: attr(data-tooltip);
+
+        @apply absolute bottom-full left-1/2 z-50 mb-2
+            -translate-x-1/2
+            rounded-md bg-[#282828]
+            px-3 py-1.5
+            text-xs font-semibold text-white
+            whitespace-nowrap
+            opacity-0 invisible
+            pointer-events-none
+            transition-opacity duration-150;
+    }
+
+    .tooltip:hover::after {
+        @apply opacity-100 visible;
+    }
+
+    .tooltip-down::after {
+        @apply top-full bottom-auto mt-2 mb-0;
+    }
+}

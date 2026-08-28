@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/png" href="./public/img/favicon.png" />
+
+        <title>Profile - Spotify</title>
+
+        <!-- Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        />
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <style>
+            * {
+                font-family: "Inter", sans-serif;
+            }
+
+            body {
+                background: #000;
+            }
+
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #5a5a5a;
+                border-radius: 999px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #7a7a7a;
+            }
+        </style>
+    </head>
+
+    <body class="bg-black text-white">
+        <!-- ================= APP ================= -->
+        <div class="flex h-screen flex-col overflow-hidden">
+            <!-- ================= MAIN ================= -->
+            <main
+                class="mb-20 min-w-0 flex-1 overflow-y-auto bg-[#121212] md:mb-0 md:rounded-lg"
+            >
+                <!-- ================= LOADING ================= -->
+                <div
+                    id="profile-loading"
+                    class="flex min-h-[500px] items-center justify-center"
+                >
+                    <div class="flex flex-col items-center gap-4">
+                        <i
+                            class="fa-solid fa-spinner animate-spin text-3xl text-white"
+                        ></i>
+
+                        <p class="text-sm text-[#B3B3B3]">Loading profile...</p>
+                    </div>
+                </div>
+
+                <div
+                    id="profile-error"
+                    class="hidden flex min-h-[300px] items-center justify-center text-sm text-red-400"
+                >
+                    Failed to load profile.
+                </div>
+
+                <!-- ================= PROFILE DATA ================= -->
+                <div id="profile-data" class="hidden">
+                    <!-- ================= PROFILE HEADER ================= -->
+                    <section
+                        class="bg-gradient-to-b from-[#535353] to-[#282828]"
+                    >
+                        <div
+                            class="mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-6 pb-8 pt-10 sm:flex-row sm:items-end sm:gap-8 sm:px-8 sm:pt-16"
+                        >
+                            <!-- Avatar -->
+                            <div
+                                class="h-36 w-36 shrink-0 overflow-hidden rounded-full bg-[#282828] shadow-2xl sm:h-48 sm:w-48"
+                            >
+                                <div
+                                    id="avatar-profile"
+                                    class="flex h-full w-full items-center justify-center bg-[#282828]"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        class="h-24 w-24 fill-[#B3B3B3]"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-8a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 10c-5 0-8 2.5-8 6v2h16v-2c0-3.5-3-6-8-6Zm-5.9 6c.5-2.1 2.5-4 5.9-4s5.4 1.9 5.9 4H6.1Z"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Information -->
+                            <div
+                                class="min-w-0 flex-1 text-center sm:text-left"
+                            >
+                                <p
+                                    class="text-sm font-bold uppercase tracking-wide text-white"
+                                >
+                                    Profile
+                                </p>
+
+                                <h1
+                                    id="display-name-profile"
+                                    class="mt-2 truncate text-4xl font-extrabold tracking-tight sm:text-6xl lg:text-8xl"
+                                ></h1>
+
+                                <div
+                                    class="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-white sm:justify-start"
+                                >
+                                    <span>
+                                        <span id="playlist-count-profile">
+                                            0
+                                        </span>
+                                        public playlists
+                                    </span>
+
+                                    <span>•</span>
+
+                                    <span>
+                                        <span id="following-count-profile">
+                                            0
+                                        </span>
+                                        following
+                                    </span>
+
+                                    <span>•</span>
+
+                                    <span>
+                                        <span id="plays-count-profile">
+                                            0
+                                        </span>
+                                        plays
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= PROFILE CONTENT ================= -->
+                    <section
+                        class="min-h-[500px] bg-gradient-to-b from-[#212121] via-[#121212] to-[#050505]"
+                    >
+                        <div class="mx-auto max-w-[1400px] px-6 py-8 sm:px-8">
+                            <!-- ================= ACTION ================= -->
+                            <div class="mb-8 flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-white">
+                                        About
+                                    </h2>
+
+                                    <p class="mt-1 text-sm text-[#B3B3B3]">
+                                        Your profile information
+                                    </p>
+                                </div>
+
+                                <!-- Logout -->
+                                <button
+                                    id="logout-btn"
+                                    type="button"
+                                    class="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black transition hover:scale-105 hover:bg-[#1ed760]"
+                                >
+                                    Log out
+                                </button>
+                            </div>
+
+                            <!-- ================= USER INFORMATION ================= -->
+                            <div
+                                class="overflow-hidden rounded-lg bg-[#181818]"
+                            >
+                                <!-- Username -->
+                                <div
+                                    class="flex flex-col gap-2 border-b border-[#292929] px-5 py-5 sm:flex-row sm:items-center sm:justify-between"
+                                >
+                                    <span class="text-sm text-[#B3B3B3]">
+                                        Username
+                                    </span>
+
+                                    <span
+                                        id="username-profile"
+                                        class="break-all text-sm font-semibold text-white sm:text-right"
+                                    ></span>
+                                </div>
+
+                                <!-- Email -->
+                                <div
+                                    class="flex flex-col gap-2 border-b border-[#292929] px-5 py-5 sm:flex-row sm:items-center sm:justify-between"
+                                >
+                                    <span class="text-sm text-[#B3B3B3]">
+                                        Email
+                                    </span>
+
+                                    <span
+                                        id="email-profile"
+                                        class="break-all text-sm font-semibold text-white sm:text-right"
+                                    ></span>
+                                </div>
+
+                                <!-- Country -->
+                                <div
+                                    class="flex flex-col gap-2 border-b border-[#292929] px-5 py-5 sm:flex-row sm:items-center sm:justify-between"
+                                >
+                                    <span class="text-sm text-[#B3B3B3]">
+                                        Country
+                                    </span>
+
+                                    <span
+                                        id="country-profile"
+                                        class="text-sm font-semibold text-white sm:text-right"
+                                    ></span>
+                                </div>
+
+                                <!-- Created -->
+                                <div
+                                    class="flex flex-col gap-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between"
+                                >
+                                    <span class="text-sm text-[#B3B3B3]">
+                                        Member since
+                                    </span>
+
+                                    <span
+                                        id="created-profile"
+                                        class="text-sm font-semibold text-white sm:text-right"
+                                    ></span>
+                                </div>
+                            </div>
+
+                            <!-- ================= BIO ================= -->
+                            <div class="mt-10">
+                                <h2 class="text-2xl font-bold text-white">
+                                    Bio
+                                </h2>
+
+                                <div class="mt-4 rounded-lg bg-[#181818] p-5">
+                                    <p
+                                        id="bio-profile"
+                                        class="whitespace-pre-wrap text-sm leading-6 text-[#B3B3B3]"
+                                    ></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ================= FOOTER ================= -->
+                    <footer
+                        class="border-t border-[#292929] px-6 py-10 sm:px-8"
+                    >
+                        <div
+                            class="mx-auto flex max-w-[1400px] flex-wrap justify-between gap-x-10 gap-y-10"
+                        >
+                            <!-- Company -->
+                            <div class="min-w-[140px]">
+                                <h4 class="mb-4 text-sm font-bold text-white">
+                                    Company
+                                </h4>
+
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            About
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Jobs
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            For the Record
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Communities -->
+                            <div class="min-w-[140px]">
+                                <h4 class="mb-4 text-sm font-bold text-white">
+                                    Communities
+                                </h4>
+
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            For Artists
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Developers
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Advertising
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Useful links -->
+                            <div class="min-w-[140px]">
+                                <h4 class="mb-4 text-sm font-bold text-white">
+                                    Useful links
+                                </h4>
+
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Support
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Free Mobile App
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Privacy
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Spotify Plans -->
+                            <div class="min-w-[140px]">
+                                <h4 class="mb-4 text-sm font-bold text-white">
+                                    Spotify Plans
+                                </h4>
+
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Premium Individual
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Premium Student
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="text-sm text-[#B3B3B3] hover:text-white hover:underline"
+                                        >
+                                            Spotify Free
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Social -->
+                            <div class="flex gap-4">
+                                <a
+                                    href="#"
+                                    aria-label="Instagram"
+                                    class="flex h-10 w-10 items-center justify-center rounded-full bg-[#292929] transition hover:bg-[#3e3e3e]"
+                                >
+                                    <i
+                                        class="fa-brands fa-instagram text-[#B3B3B3] hover:text-white"
+                                    ></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="X"
+                                    class="flex h-10 w-10 items-center justify-center rounded-full bg-[#292929] transition hover:bg-[#3e3e3e]"
+                                >
+                                    <i
+                                        class="fa-brands fa-x-twitter text-[#B3B3B3] hover:text-white"
+                                    ></i>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="Facebook"
+                                    class="flex h-10 w-10 items-center justify-center rounded-full bg-[#292929] transition hover:bg-[#3e3e3e]"
+                                >
+                                    <i
+                                        class="fa-brands fa-facebook-f text-[#B3B3B3] hover:text-white"
+                                    ></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Footer bottom -->
+                        <div
+                            class="mx-auto mt-10 flex max-w-[1400px] flex-col gap-4 border-t border-[#292929] pt-8 text-xs text-[#B3B3B3] sm:flex-row sm:items-center sm:justify-between"
+                        >
+                            <div class="flex flex-wrap gap-x-5 gap-y-3">
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    Legal
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    Safety & Privacy Center
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    Privacy Policy
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    Cookies
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    About Ads
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="transition hover:text-[#1ED760]"
+                                >
+                                    Accessibility
+                                </a>
+                            </div>
+
+                            <span class="shrink-0"> © 2026 Spotify AB </span>
+                        </div>
+                    </footer>
+                </div>
+            </main>
+        </div>
+
+        <!-- ================= JAVASCRIPT ================= -->
+        <script src="./js/api.js"></script>
+        <script src="./js/profile.js"></script>
+    </body>
+</html>
