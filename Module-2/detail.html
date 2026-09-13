@@ -10,9 +10,14 @@
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
+
         <!-- Favicon -->
 
-        <link rel="icon" type="image/svg+xml" href="./public/img/favicon.png" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="./public/img/faviconblack.png"
+        />
 
         <title>Spotify - Web Player: Music for everyone</title>
 
@@ -750,93 +755,371 @@
                             Something went wrong. Please try again.
                         </p>
                     </div>
-                    <!-- Content -->
+                    <!-- Main Content -->
                     <div
-                        id="content"
-                        class="px-4 hidden py-6 md:px-6 md:py-8 lg:px-8 bg-linear-to-b from-[#222222] from-0% to-[#121212] to-30%"
+                        id="entity-detail-view"
+                        class="relative hidden flex-1 overflow-y-auto bg-[#121212] text-white"
                     >
-                        <!-- Section 1 -->
-                        <section class="">
-                            <div class="mb-4 flex items-center justify-between">
-                                <h2
-                                    class="text-2xl font-bold text-white hover:underline"
-                                >
-                                    <a href="#!">Today’s biggest hits</a>
-                                </h2>
-
-                                <a
-                                    href="#!"
-                                    class="text-sm font-semibold text-[#B3B3B3] hover:underline"
-                                >
-                                    Show all
-                                </a>
-                            </div>
-
-                            <div id="track-list" class="flex flex-wrap"></div>
-                        </section>
-
-                        <!-- Section 2 -->
-                        <section class="mt-8 md:mt-10">
-                            <div class="mb-4 flex items-center justify-between">
-                                <h2
-                                    class="text-2xl font-bold text-white hover:underline"
-                                >
-                                    <a href="#!">Trending artists</a>
-                                </h2>
-
-                                <a
-                                    href="#!"
-                                    class="text-sm font-semibold text-[#B3B3B3] hover:underline"
-                                >
-                                    Show all
-                                </a>
-                            </div>
-
-                            <div id="artist-list" class="flex"></div>
-                        </section>
-
-                        <!-- Section 3 -->
-                        <section class="mt-8 md:mt-10">
-                            <div class="mb-4 flex items-center justify-between">
-                                <h2
-                                    class="text-2xl font-bold text-white hover:underline"
-                                >
-                                    <a href="#!">Popular albums</a>
-                                </h2>
-
-                                <a
-                                    href="#!"
-                                    class="text-sm font-semibold text-[#B3B3B3] hover:underline"
-                                >
-                                    Show all
-                                </a>
-                            </div>
-
-                            <div id="album-list" class="flex flex-wrap"></div>
-                        </section>
-
-                        <!-- Section 4 -->
-                        <section class="mt-8 md:mt-10">
-                            <div class="mb-4 flex items-center justify-between">
-                                <h2
-                                    class="text-2xl font-bold text-white hover:underline"
-                                >
-                                    <a href="#!">All playlists</a>
-                                </h2>
-
-                                <a
-                                    href="#!"
-                                    class="text-sm font-semibold text-[#B3B3B3] hover:underline"
-                                >
-                                    Show all
-                                </a>
-                            </div>
+                        <!-- Hero -->
+                        <div
+                            id="entity-hero-banner"
+                            class="flex items-end gap-6 bg-gradient-to-b from-[#8a1c22] via-[#521316] to-[#121212] p-8 pt-16"
+                        >
+                            <img
+                                id="entity-cover"
+                                src=""
+                                alt=""
+                                class="h-52 w-52 shrink-0 rounded object-cover shadow-2xl"
+                            />
 
                             <div
-                                id="playlist-list"
-                                class="flex flex-wrap"
-                            ></div>
-                        </section>
+                                id="entity-metadata"
+                                class="flex min-w-0 flex-col gap-2"
+                            >
+                                <span
+                                    id="entity-type"
+                                    class="text-xs font-bold uppercase tracking-wider text-white"
+                                ></span>
+
+                                <h1
+                                    id="entity-title"
+                                    class="break-words leading-normal text-5xl font-black tracking-tight md:text-7xl lg:text-8xl"
+                                ></h1>
+
+                                <span
+                                    id="artist-verified"
+                                    class="hidden items-center gap-1.5 text-sm font-semibold text-white"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="18"
+                                        height="18"
+                                        fill="#1fdf64"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M10.814.5a1.66 1.66 0 0 1 2.372 0l2.512 2.572 3.595-.043a1.66 1.66 0 0 1 1.678 1.678l-.043 3.595 2.572 2.512c.667.65.667 1.722 0 2.372l-2.572 2.512.043 3.595a1.66 1.66 0 0 1-1.678 1.678l-3.595-.043-2.512 2.572a1.66 1.66 0 0 1-2.372 0l-2.512-2.572-3.595.043a1.66 1.66 0 0 1-1.678-1.678l.043-3.595L.5 13.186a1.66 1.66 0 0 1 0-2.372l2.572-2.512-.043-3.595a1.66 1.66 0 0 1 1.678-1.678l3.595.043zm6.584 9.12a1 1 0 0 0-1.414-1.413l-6.011 6.01-1.894-1.893a1 1 0 0 0-1.414 1.414l3.308 3.308z"
+                                        />
+                                    </svg>
+
+                                    <span>Verified by Spotify</span>
+                                </span>
+
+                                <p
+                                    id="entity-album"
+                                    class="text-sm text-[#B3B3B3]"
+                                ></p>
+
+                                <span
+                                    id="artist-monthly-listeners"
+                                    class="hidden text-sm font-semibold text-white"
+                                ></span>
+
+                                <div
+                                    id="common-meta"
+                                    class="mt-4 flex items-center gap-1.5 text-sm font-semibold text-white"
+                                >
+                                    <img
+                                        id="entity-author-avatar"
+                                        src=""
+                                        alt=""
+                                        class="h-6 w-6 rounded-full object-cover"
+                                    />
+
+                                    <a
+                                        id="entity-author-name"
+                                        href="#!"
+                                        class="hover:underline"
+                                    ></a>
+
+                                    <span class="text-gray-300">•</span>
+
+                                    <span
+                                        id="entity-release-year"
+                                        class="text-gray-300"
+                                    ></span>
+
+                                    <span class="text-gray-300">•</span>
+
+                                    <span
+                                        id="entity-stats"
+                                        class="text-gray-300"
+                                    ></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="bg-[#121212]/60 px-8 py-6 backdrop-blur-md">
+                            <!-- Actions -->
+                            <div class="mb-6 flex items-center justify-between">
+                                <div class="flex items-center gap-6">
+                                    <!-- Play / Pause -->
+                                    <button
+                                        id="player-play"
+                                        type="button"
+                                        data-tooltip="Play"
+                                        aria-label="Play"
+                                        class="tooltip flex h-14 w-14 items-center justify-center rounded-full bg-[#1ed760] transition-transform hover:scale-105 active:scale-95"
+                                    >
+                                        <svg
+                                            class="h-8 w-8 fill-black"
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                id="player-play-icon"
+                                                d="M8 5v14l11-7z"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Shuffle -->
+                                    <button
+                                        id="btn-shuffle"
+                                        type="button"
+                                        data-tooltip="Enable Shuffle"
+                                        aria-label="Shuffle"
+                                        class="tooltip text-[#b3b3b3] transition-all hover:scale-105 hover:text-white active:scale-95"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            class="h-8 w-8 fill-current"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M18.788 3.702a1 1 0 0 1 1.414-1.414L23.914 6l-3.712 3.712a1 1 0 1 1-1.414-1.414L20.086 7h-1.518a5 5 0 0 0-3.826 1.78l-7.346 8.73a7 7 0 0 1-5.356 2.494H1v-2h1.04a5 5 0 0 0 3.826-1.781l7.345-8.73A7 7 0 0 1 18.569 5h1.518l-1.298-1.298z"
+                                            />
+                                            <path
+                                                d="M18.788 14.289a1 1 0 0 0 0 1.414L20.086 17h-1.518a5 5 0 0 1-3.826-1.78l-1.403-1.668-1.306 1.554 1.178 1.4A7 7 0 0 0 18.568 19h1.518l-1.298 2.298a1 1 0 1 0 1.414 1.414L23.914 18l-3.712-3.713a1 1 0 0 0-1.414 0zM7.396 6.49l2.023 2.404-1.307 1.553-2.246-2.67a5 5 0 0 0-3.826-1.78H1v-2h1.04A7 7 0 0 1 7.396 6.49"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Like / Unlike -->
+                                    <button
+                                        id="btn-like"
+                                        type="button"
+                                        data-tooltip="Like"
+                                        aria-label="Like"
+                                        class="tooltip text-[#b3b3b3] transition-all hover:scale-105 hover:text-white active:scale-95"
+                                    >
+                                        <i
+                                            id="like-icon"
+                                            class="fa-regular fa-heart text-2xl"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+
+                                    <!-- Follow -->
+                                    <button
+                                        id="btn-follow"
+                                        type="button"
+                                        data-tooltip="Follow"
+                                        aria-label="Follow"
+                                        class="hidden tooltip rounded-full border border-[#7c7c7c] px-4 py-1.5 text-xs font-bold text-white transition-all duration-200 hover:scale-105 hover:border-white active:scale-95"
+                                    >
+                                        Follow
+                                    </button>
+
+                                    <!-- Library -->
+                                    <button
+                                        id="btn-toggle-library"
+                                        type="button"
+                                        data-tooltip="Add to Library"
+                                        aria-label="Add to Library"
+                                        class="tooltip text-[#b3b3b3] transition-all hover:scale-105 hover:text-white active:scale-95"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            class="h-8 w-8 fill-current"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18m-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11"
+                                            />
+                                            <path
+                                                d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 0 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1"
+                                            />
+                                        </svg>
+                                    </button>
+
+                                    <!-- More options -->
+                                    <div class="relative">
+                                        <button
+                                            id="btn-more-options"
+                                            type="button"
+                                            data-tooltip="More options"
+                                            aria-label="More options"
+                                            class="tooltip text-[#b3b3b3] transition-all hover:scale-105 hover:text-white active:scale-95"
+                                        >
+                                            <svg
+                                                class="h-6 w-6 fill-current"
+                                                viewBox="0 0 24 24"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z"
+                                                />
+                                            </svg>
+                                        </button>
+
+                                        <!-- More options menu -->
+                                        <div
+                                            id="more-options-menu"
+                                            class="absolute left-0 top-full z-50 mt-2 ml-2 hidden w-64 rounded-lg bg-[#282828] p-1.5 shadow-2xl shadow-black/50"
+                                        >
+                                            <!-- Add to Playlist -->
+                                            <div class="relative">
+                                                <button
+                                                    id="btn-add-to-playlist"
+                                                    type="button"
+                                                    class="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm text-white transition-colors hover:bg-white/10"
+                                                >
+                                                    <span
+                                                        class="flex items-center gap-3"
+                                                    >
+                                                        <i
+                                                            class="fa-solid fa-plus w-4 text-[#B3B3B3]"
+                                                        ></i>
+                                                        <span
+                                                            >Add to
+                                                            Playlist</span
+                                                        >
+                                                    </span>
+
+                                                    <i
+                                                        class="fa-solid fa-chevron-right text-xs text-[#B3B3B3]"
+                                                    ></i>
+                                                </button>
+
+                                                <!-- Submenu playlist -->
+                                                <div
+                                                    id="playlist-submenu"
+                                                    class="absolute left-full top-0 ml-1 hidden w-56 rounded-lg bg-[#282828] p-1.5 shadow-2xl shadow-black/50"
+                                                >
+                                                    <p
+                                                        class="px-3 py-2 text-xs font-semibold text-[#B3B3B3]"
+                                                    >
+                                                        Add to Playlist
+                                                    </p>
+
+                                                    <div
+                                                        id="playlist-menu-list"
+                                                        class="max-h-64 overflow-y-auto"
+                                                    >
+                                                        <!-- JS sẽ render playlist ở đây -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Separator -->
+                                            <div
+                                                class="my-1 border-t border-white/10"
+                                            ></div>
+
+                                            <!-- Share -->
+                                            <button
+                                                type="button"
+                                                class="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm text-white transition-colors hover:bg-white/10"
+                                            >
+                                                <i
+                                                    class="fa-solid fa-share-nodes w-4 text-[#B3B3B3]"
+                                                ></i>
+                                                <span>Share</span>
+                                            </button>
+
+                                            <!-- Copy link -->
+                                            <button
+                                                type="button"
+                                                class="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm text-white transition-colors hover:bg-white/10"
+                                            >
+                                                <i
+                                                    class="fa-solid fa-link w-4 text-[#B3B3B3]"
+                                                ></i>
+                                                <span>Copy link</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- View mode -->
+                                <button
+                                    id="btn-view-mode"
+                                    type="button"
+                                    data-tooltip="Change view"
+                                    aria-label="Change view"
+                                    class="tooltip flex items-center gap-2 text-sm font-semibold text-[#b3b3b3] transition-colors hover:text-white"
+                                >
+                                    <span>List</span>
+
+                                    <svg
+                                        class="h-4 w-4 fill-current"
+                                        viewBox="0 0 16 16"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M15 14.5H1V13h14v1.5zm0-5H1V8h14v1.5zm0-5H1V3h14v1.5z"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Track header -->
+                            <div
+                                class="mb-2 grid grid-cols-[16px_1fr_120px] items-center gap-4 border-b border-white/10 px-4 py-2 text-sm font-semibold text-[#b3b3b3]"
+                            >
+                                <span>#</span>
+
+                                <span>Title</span>
+
+                                <div class="flex justify-end pr-8">
+                                    <svg
+                                        class="h-4 w-4 stroke-current"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="2"
+                                    >
+                                        <circle cx="12" cy="12" r="10" />
+                                        <polyline points="12 6 12 12 16 14" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic track list -->
+                            <div id="track-list" class="flex flex-col"></div>
+
+                            <!-- More by -->
+                            <div
+                                id="more-by-section"
+                                class="mt-8 flex flex-col gap-4"
+                            >
+                                <div class="flex items-center justify-between">
+                                    <h2
+                                        class="text-2xl font-bold tracking-tight text-white"
+                                    >
+                                        More by
+                                        <span id="more-by-author-name"></span>
+                                    </h2>
+
+                                    <a
+                                        id="more-by-see-all"
+                                        href="#!"
+                                        class="text-sm font-bold text-[#b3b3b3] hover:underline"
+                                    >
+                                        See discography
+                                    </a>
+                                </div>
+
+                                <!-- Dynamic Related List -->
+                                <div
+                                    id="more-by-list"
+                                    class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+                                ></div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Footer Main -->
@@ -1173,6 +1456,7 @@
                     <!-- Song Info -->
                     <div class="flex min-w-0 items-center gap-3">
                         <img
+                            id="player-cover"
                             src="https://picsum.photos/80"
                             alt="Album cover"
                             class="h-14 w-14 shrink-0 rounded object-cover"
@@ -1180,13 +1464,17 @@
 
                         <div class="min-w-0">
                             <h4
+                                id="player-title"
                                 class="truncate text-sm font-medium text-white hover:underline"
                             >
-                                Blinding Lights
+                                No song played
                             </h4>
 
-                            <p class="truncate text-xs text-[#B3B3B3]">
-                                The Weeknd
+                            <p
+                                id="player-artist"
+                                class="truncate text-xs text-[#B3B3B3]"
+                            >
+                                ---
                             </p>
                         </div>
 
@@ -1220,10 +1508,11 @@
                             <button
                                 class="tooltip hidden text-[#B3B3B3] transition hover:scale-105 hover:text-white sm:block"
                                 data-tooltip="Enable Shuffle"
+                                id="shuffle-button"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
-                                    class="h-4 w-4 fill-[#B3B3B3] transition-colors duration-200 hover:fill-white"
+                                    class="h-4 w-4 fill-current transition-colors duration-200 hover:fill-white"
                                     aria-hidden="true"
                                 >
                                     <path
@@ -1239,6 +1528,7 @@
                             <button
                                 class="tooltip text-[#B3B3B3] transition hover:scale-105 hover:text-white"
                                 data-tooltip="Previous"
+                                id="player-previous"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
@@ -1255,6 +1545,7 @@
                             <button
                                 class="tooltip flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition hover:scale-105"
                                 data-tooltip="Play"
+                                id="btn-play-all"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
@@ -1262,6 +1553,7 @@
                                     aria-hidden="true"
                                 >
                                     <path
+                                        id="play-all-icon"
                                         d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288z"
                                     />
                                 </svg>
@@ -1271,6 +1563,7 @@
                             <button
                                 class="tooltip text-[#B3B3B3] transition hover:scale-105 hover:text-white"
                                 data-tooltip="Next"
+                                id="player-next"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
@@ -1285,8 +1578,9 @@
 
                             <!-- Repeat -->
                             <button
-                                class="tooltip hidden text-[#B3B3B3] transition hover:scale-105 hover:text-white sm:block"
+                                class="tooltip relative hidden text-[#B3B3B3] transition hover:scale-105 hover:text-white sm:block"
                                 data-tooltip="Enable Repeat"
+                                id="repeat-button"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
@@ -1297,6 +1591,11 @@
                                         d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75z"
                                     />
                                 </svg>
+                                <span
+                                    id="repeat-one-indicator"
+                                    class="absolute left-1/2 -top-2 hidden text-[9px] font-bold text-[#1ED760] -translate-x-1/2 text-[8px] font-bold leading-none"
+                                    >1</span
+                                >
                             </button>
                         </div>
 
@@ -1305,25 +1604,32 @@
                             class="mt-1 flex w-full max-w-[600px] items-center gap-2"
                         >
                             <span
+                                id="current-time"
                                 class="w-8 text-right text-[11px] text-[#B3B3B3]"
                             >
-                                0:32
+                                00:00
                             </span>
 
                             <div
+                                id="progress-bar"
                                 class="group relative h-1 flex-1 cursor-pointer rounded-full bg-[#4D4D4D]"
                             >
                                 <div
-                                    class="h-full w-[25%] rounded-full bg-white transition-colors group-hover:bg-[#1ed760]"
+                                    id="progress-fill"
+                                    class="h-full w-[0%] rounded-full bg-white transition-colors group-hover:bg-[#1ed760]"
                                 ></div>
 
                                 <div
-                                    class="absolute left-[25%] top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-0 group-hover:opacity-100"
+                                    id="progress-thumb"
+                                    class="absolute left-[0%] top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-0 group-hover:opacity-100"
                                 ></div>
                             </div>
 
-                            <span class="w-8 text-[11px] text-[#B3B3B3]">
-                                3:45
+                            <span
+                                id="duration"
+                                class="w-8 text-[11px] text-[#B3B3B3]"
+                            >
+                                00:00
                             </span>
                         </div>
                     </div>
@@ -1384,6 +1690,7 @@
                             <button
                                 class="tooltip text-[#B3B3B3] transition hover:scale-105 hover:text-white"
                                 data-tooltip="Mute"
+                                id="volume-button"
                             >
                                 <svg
                                     viewBox="0 0 16 16"
@@ -1401,62 +1708,85 @@
 
                             <!-- Volume bar -->
                             <div
-                                class="hidden h-1 w-24 cursor-pointer rounded-full bg-[#4D4D4D] sm:block"
+                                id="volume-bar"
+                                class="group relative hidden h-1 w-24 cursor-pointer rounded-full bg-[#4D4D4D] sm:block"
                             >
+                                <!-- Thanh volume -->
                                 <div
-                                    class="h-full w-[70%] rounded-full bg-white hover:bg-[#1ed760]"
+                                    id="volume-progress"
+                                    class="h-full w-0 rounded-full bg-white transition-colors duration-150 group-hover:bg-[#1ed760]"
                                 ></div>
-                            </div>
 
-                            <!-- Now Playing View -->
-                            <div
-                                class="tooltip ml-1"
-                                data-tooltip="Open Miniplayer"
-                            >
-                                <button
-                                    class="text-[#B3B3B3] transition-transform duration-200 hover:scale-105"
-                                >
-                                    <svg
-                                        viewBox="0 0 16 16"
-                                        class="h-4 w-4 fill-current transition-colors duration-200 hover:fill-white"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16z"
-                                        />
-                                        <path
-                                            d="M15.25 9.007a.75.75 0 0 1 .75.75v4.493a.75.75 0 0 1-.75.75H9.325a.75.75 0 0 1-.75-.75V9.757a.75.75 0 0 1 .75-.75z"
-                                        />
-                                    </svg>
-                                </button>
+                                <!-- Chấm kéo -->
+                                <span
+                                    id="volume-thumb"
+                                    class="pointer-events-none absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full bg-white opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+                                ></span>
                             </div>
-                            <!-- Full Screen -->
-                            <div
-                                class="tooltip mx-1"
-                                data-tooltip="Enter Full screen"
+                        </div>
+                        <!-- Now Playing View -->
+                        <div
+                            class="tooltip ml-1"
+                            data-tooltip="Open Miniplayer"
+                        >
+                            <button
+                                class="text-[#B3B3B3] transition-transform duration-200 hover:scale-105"
                             >
-                                <button
-                                    class="transition-transform duration-200 hover:scale-105"
+                                <svg
+                                    viewBox="0 0 16 16"
+                                    class="h-4 w-4 fill-current transition-colors duration-200 hover:fill-white"
+                                    aria-hidden="true"
                                 >
-                                    <svg
-                                        viewBox="0 0 16 16"
-                                        class="h-4 w-4 text-[#B3B3B3] transition-colors duration-200 hover:text-white"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            fill="currentColor"
-                                            d="M0.25 3C0.25 2.0335 1.0335 1.25 2 1.25H5.375V2.75H2C1.86193 2.75 1.75 2.86193 1.75 3V5.42857H0.25V3ZM14 2.75H10.625V1.25H14C14.9665 1.25 15.75 2.0335 15.75 3V5.42857H14.25V3C14.25 2.86193 14.1381 2.75 14 2.75ZM1.75 10.5714V13C1.75 13.1381 1.86193 13.25 2 13.25H5.375V14.75H2C1.0335 14.75 0.25 13.9665 0.25 13V10.5714H1.75ZM14.25 13V10.5714H15.75V13C15.75 13.9665 14.9665 14.75 14 14.75H10.625V13.25H14C14.1381 13.25 14.25 13.1381 14.25 13Z"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
+                                    <path
+                                        d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16z"
+                                    />
+                                    <path
+                                        d="M15.25 9.007a.75.75 0 0 1 .75.75v4.493a.75.75 0 0 1-.75.75H9.325a.75.75 0 0 1-.75-.75V9.757a.75.75 0 0 1 .75-.75z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Full Screen -->
+                        <div
+                            class="tooltip mx-1"
+                            data-tooltip="Enter Full screen"
+                        >
+                            <button
+                                class="transition-transform duration-200 hover:scale-105"
+                            >
+                                <svg
+                                    viewBox="0 0 16 16"
+                                    class="h-4 w-4 text-[#B3B3B3] transition-colors duration-200 hover:text-white"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        fill="currentColor"
+                                        d="M0.25 3C0.25 2.0335 1.0335 1.25 2 1.25H5.375V2.75H2C1.86193 2.75 1.75 2.86193 1.75 3V5.42857H0.25V3ZM14 2.75H10.625V1.25H14C14.9665 1.25 15.75 2.0335 15.75 3V5.42857H14.25V3C14.25 2.86193 14.1381 2.75 14 2.75ZM1.75 10.5714V13C1.75 13.1381 1.86193 13.25 2 13.25H5.375V14.75H2C1.0335 14.75 0.25 13.9665 0.25 13V10.5714H1.75ZM14.25 13V10.5714H15.75V13C15.75 13.9665 14.9665 14.75 14 14.75H10.625V13.25H14C14.1381 13.25 14.25 13.1381 14.25 13Z"
+                                    />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
+
+        <!-- Global Toast -->
+        <!-- Global Toast -->
+        <div
+            id="toast"
+            class="fixed right-8 top-22 z-[100] hidden rounded-lg bg-[#1f1f1f] px-4 py-3 text-sm text-white shadow-lg"
+        >
+            <span
+                id="toast-message"
+                class="font-semibold text-[#1ed760]"
+            ></span>
+        </div>
+
+        <!-- HTML Media Element đặt ở cuối body -->
+        <audio id="audio-player"></audio>
 
         <script type="module" src="./src/main.js"></script>
     </body>

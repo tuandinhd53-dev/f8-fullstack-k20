@@ -46,12 +46,6 @@ const cardConfig = {
     },
 };
 
-const routes = {
-    tracks: "/track",
-    artists: "/artist",
-    albums: "/album",
-    playlists: "/playlist",
-};
 // Lấy data từ API path
 
 const fetchData = async (path, key) => {
@@ -176,9 +170,7 @@ const handleCardClick = (e) => {
     console.log(id);
     console.log(type);
 
-    const path = routes[type];
-
-    window.location.href = `${path}?id=${id}`;
+    window.location.href = `/detail.html?type=${type}&id=${id}`;
 };
 
 listElements.tracks.addEventListener("click", handleCardClick);

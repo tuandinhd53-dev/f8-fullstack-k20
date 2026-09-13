@@ -3,7 +3,6 @@
 @theme {
     --background-primary: #000;
     --color-primary: #a0a0a0;
-    
 }
 
 @layer base {
@@ -39,5 +38,70 @@
 
     .tooltip-down::after {
         @apply top-full bottom-auto mt-2 mb-0;
+    }
+
+    .equalizer-bar {
+        width: 2px;
+        height: 10px;
+        border-radius: 9999px;
+        background: #1ed760;
+        transform-origin: bottom;
+        animation: equalizer 0.25s ease-in-out infinite alternate;
+    }
+
+    .equalizer-bar:nth-child(2) {
+        height: 7px;
+        animation-delay: 0.05s;
+    }
+
+    .equalizer-bar:nth-child(3) {
+        height: 12px;
+        animation-delay: 0.1s;
+    }
+
+    .equalizer-bar:nth-child(4) {
+        height: 8px;
+        animation-delay: 0.15s;
+    }
+
+    @keyframes equalizer {
+        from {
+            transform: scaleY(0.5);
+        }
+
+        to {
+            transform: scaleY(1);
+        }
+    }
+    /* Trạng thái mặc định */
+    .track-play-button {
+        display: none;
+    }
+
+    .track-equalizer {
+        display: none;
+    }
+
+    /* Hover bài chưa phát */
+    .track-row:hover .track-number {
+        display: none;
+    }
+
+    .track-row:hover .track-play-button {
+        display: flex;
+    }
+
+    /* Bài đang phát */
+    .track-row.is-playing .track-number {
+        display: none;
+    }
+
+    .track-row.is-playing .track-equalizer {
+        display: flex;
+    }
+
+    /* Bài đang phát + hover → hiện Pause */
+    .track-row.is-playing:hover .track-equalizer {
+        display: none;
     }
 }
