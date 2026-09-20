@@ -2,7 +2,7 @@ import { httpRequest } from "./libs/httpRequest.js";
 import { showToast } from "./libs/toast.js";
 import "./libs/guestModal.js";
 import "./assets/style.css";
-
+import "./libs/resizableSidebar.js";
 
 // ==================== HEADER - AUTH UI ====================
 
@@ -315,6 +315,13 @@ trendingList.addEventListener("click", (event) => {
 
     // Nếu là kết quả tìm kiếm
     if (button.dataset.result === "true") {
+        const token = localStorage.getItem("access_token");
+
+        if (!token) {
+            openGuestModal();
+            return;
+        }
+
         const { id, type } = button.dataset;
 
         window.location.href = `./detail.html?type=${type}&id=${id}`;
@@ -325,7 +332,7 @@ trendingList.addEventListener("click", (event) => {
     const keyword = button.dataset.keyword;
 
     if (!keyword) return;
-    // Đưa keyword vào ô Search và thực hiện tìm kiếm
+
     searchInput.value = keyword;
     searchUniversal(keyword);
 });
