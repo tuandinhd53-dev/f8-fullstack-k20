@@ -104,4 +104,34 @@
     .track-row.is-playing:hover .track-equalizer {
         display: none;
     }
+
+    /* Scrollbar dropdown tìm kiếm */
+    #trending-list {
+        scrollbar-width: thin;
+        scrollbar-color: #5a5a5a transparent;
+    }
+
+    /* Chrome, Edge */
+    #trending-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #trending-list::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #trending-list::-webkit-scrollbar-thumb {
+        background: #5a5a5a;
+        border-radius: 9999px;
+    }
+
+    #trending-list::-webkit-scrollbar-thumb:hover {
+        background: #7a7a7a;
+    }
+
+    #trending-list::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+        display: none;
+    }
 }

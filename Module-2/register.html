@@ -12,7 +12,13 @@
             rel="stylesheet"
         />
 
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- Favicon -->
+
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="./public/img/faviconblack.png"
+        />
     </head>
 
     <body class="min-h-screen bg-[#121212] text-white antialiased">
@@ -299,7 +305,17 @@
                 </div>
             </footer>
         </div>
-        <script src="./js/api.js"></script>
-        <script src="./js/register.js"></script>
+
+         <!-- Global Toast -->
+        <div
+            id="toast"
+            class="fixed right-8 top-22 z-[100] hidden rounded-lg bg-[#1f1f1f] px-4 py-3 text-sm text-white shadow-lg"
+        >
+            <span
+                id="toast-message"
+                class="font-semibold text-[#1ed760]"
+            ></span>
+        </div>
+        <script type="module" src="/src/pages/auth/register.js"></script>
     </body>
 </html>

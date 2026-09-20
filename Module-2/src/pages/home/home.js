@@ -1,4 +1,6 @@
 import { httpRequest } from "../../libs/httpRequest";
+import { openGuestModal } from "../../libs/guestModal.js";
+import "./sidebar.js";
 
 // Dom
 const listElements = {
@@ -161,14 +163,17 @@ const renderSection = (items, container, type) => {
 };
 
 const handleCardClick = (e) => {
-    // Tìm Card có Data-it
     const card = e.target.closest("[data-id]");
-
     if (!card) return;
 
     const { id, type } = card.dataset;
-    console.log(id);
-    console.log(type);
+
+    const token = localStorage.getItem("access_token");
+
+    if (!token) {
+        openGuestModal();
+        return;
+    }
 
     window.location.href = `/detail.html?type=${type}&id=${id}`;
 };

@@ -13,11 +13,7 @@
 
         <!-- Favicon -->
 
-        <link
-            rel="icon"
-            type="image/svg+xml"
-            href="./public/img/faviconblack.png"
-        />
+        <link rel="icon" type="image/svg+xml" href="./public/img/favicon.png" />
 
         <title>Spotify - Web Player: Music for everyone</title>
 
@@ -74,45 +70,66 @@
                         </a>
 
                         <!-- Search -->
-                        <form
-                            class="ml-2 flex h-12 w-[180px] items-center rounded-full bg-[#1F1F1F] transition-all duration-200 focus-within:ring-1 focus-within:ring-white sm:w-[260px] md:w-[360px] lg:w-[420px] xl:w-[484px]"
-                        >
-                            <button type="submit" class="ml-3 mr-3 shrink-0">
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    class="h-6 w-6 fill-white"
-                                >
-                                    <path
-                                        d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
-                                    />
-                                </svg>
-                            </button>
-
-                            <input
-                                type="search"
-                                placeholder="What do you want to play?"
-                                class="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-[#B3B3B3]"
-                            />
-
-                            <span class="mr-2 text-gray-400">|</span>
-
-                            <a
-                                href="#!"
-                                class="mr-4 shrink-0 transition-transform duration-200 hover:scale-[1.03]"
+                        <div class="relative">
+                            <form
+                                id="search-form"
+                                class="ml-2 flex h-12 w-[180px] items-center rounded-full bg-[#1F1F1F] transition-all duration-200 focus-within:ring-1 focus-within:ring-white sm:w-[260px] md:w-[360px] lg:w-[420px] xl:w-[484px]"
                             >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    class="h-6 w-6 fill-white"
+                                <button
+                                    type="submit"
+                                    class="ml-3 mr-3 shrink-0"
+                                    aria-label="Search"
                                 >
-                                    <path
-                                        d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2"
-                                    />
-                                    <path
-                                        d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4z"
-                                    />
-                                </svg>
-                            </a>
-                        </form>
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        class="h-6 w-6 fill-white"
+                                    >
+                                        <path
+                                            d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.132 22.2071C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
+                                        />
+                                    </svg>
+                                </button>
+
+                                <input
+                                    id="search-input"
+                                    type="search"
+                                    placeholder="What do you want to play?"
+                                    autocomplete="off"
+                                    class="min-w-0 flex-1 bg-transparent text-white outline-none placeholder:text-[#B3B3B3]"
+                                />
+
+                                <span class="mr-2 text-gray-400">|</span>
+
+                                <a
+                                    href="#!"
+                                    class="mr-4 shrink-0 transition-transform duration-200 hover:scale-[1.03]"
+                                    aria-label="Browse"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        class="h-6 w-6 fill-white"
+                                    >
+                                        <path
+                                            d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2"
+                                        />
+                                        <path
+                                            d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4z"
+                                        />
+                                    </svg>
+                                </a>
+                            </form>
+
+                            <!-- Search dropdown -->
+                            <div
+                                id="search-results"
+                                class="absolute left-0 top-14 z-50 hidden w-full overflow-hidden rounded-lg bg-[#282828] p-2 shadow-2xl"
+                            >
+                                <div
+                                    id="trending-list"
+                                    class="max-h-[300px] overflow-y-auto"
+                                ></div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Chưa Login -->
@@ -569,6 +586,7 @@
                         </h1>
 
                         <button
+                            id="create-playlist-btn"
                             class="group mr-3 flex items-center gap-2 rounded-full bg-[#1F1F1F] px-3 py-1.5 text-[#B3B3B3] transition-all duration-200 hover:bg-[#242323] hover:text-white lg:mr-5 lg:px-4"
                         >
                             <span
@@ -583,43 +601,212 @@
                         </button>
                     </header>
 
-                    <!-- Playlists -->
+                    <!-- Your Library -->
                     <section
-                        class="mx-2 mt-8 flex flex-col gap-4 tracking-tight text-white lg:mt-10 lg:gap-6"
+                        id="library-list"
+                        class="relative mx-2 mt-6 flex flex-col tracking-tight text-white lg:mt-7"
                     >
-                        <!-- Card 1 -->
-                        <article class="rounded-lg bg-[#1F1F1F] p-4">
+                        <!-- Library Controls -->
+                        <div class="px-2">
+                            <!-- Filter -->
+                            <div
+                                id="library-filters"
+                                class="flex items-center gap-2 overflow-x-auto"
+                            ></div>
+
+                            <!-- Search + Sort -->
+                            <div
+                                class="relative mt-4 flex items-center justify-between"
+                            >
+                                <!-- Search -->
+                                <div class="flex min-w-0 items-center">
+                                    <button
+                                        id="library-search-btn"
+                                        type="button"
+                                        class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[#B3B3B3] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+                                        aria-label="Search your library"
+                                    >
+                                        <i
+                                            class="fa-solid fa-magnifying-glass text-sm"
+                                        ></i>
+                                    </button>
+
+                                    <!-- Search input - hidden initially -->
+                                    <input
+                                        id="library-search-input"
+                                        type="text"
+                                        placeholder="Search in Your Library"
+                                        class="hidden h-8 w-40 rounded-md bg-[#1F1F1F] px-3 text-xs text-white outline-none placeholder:text-[#B3B3B3] focus:ring-1 focus:ring-[#B3B3B3]"
+                                    />
+                                </div>
+
+                                <!-- Sort + View -->
+                                <button
+                                    id="library-sort-btn"
+                                    type="button"
+                                    class="flex shrink-0 items-center gap-2 rounded-md px-2 py-1.5 text-xs font-semibold text-[#B3B3B3] transition-colors hover:bg-[#1F1F1F] hover:text-white"
+                                >
+                                    <span id="library-sort-label">
+                                        Recents
+                                    </span>
+
+                                    <i class="fa-solid fa-list text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sort / View Menu -->
+                        <div
+                            id="library-sort-menu"
+                            class="absolute right-2 top-14 z-50 hidden w-52 rounded-md bg-[#282828] p-1.5 shadow-2xl"
+                        >
+                            <!-- Sort -->
+                            <div
+                                class="px-3 py-2 text-xs font-semibold text-[#B3B3B3]"
+                            >
+                                Sort by
+                            </div>
+
+                            <button
+                                type="button"
+                                data-sort="recently-added"
+                                class="flex w-full items-center justify-between rounded px-3 py-2 text-left text-xs text-white hover:bg-[#3E3E3E]"
+                            >
+                                <span>Recently Added</span>
+
+                                <i
+                                    data-sort-check="recently-added"
+                                    class="fa-solid fa-check text-[#1ED760]"
+                                ></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                data-sort="alphabetical"
+                                class="flex w-full items-center justify-between rounded px-3 py-2 text-left text-xs text-white hover:bg-[#3E3E3E]"
+                            >
+                                <span>Alphabetical</span>
+
+                                <i
+                                    data-sort-check="alphabetical"
+                                    class="hidden fa-solid fa-check text-[#1ED760]"
+                                ></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                data-sort="creator"
+                                class="flex w-full items-center justify-between rounded px-3 py-2 text-left text-xs text-white hover:bg-[#3E3E3E]"
+                            >
+                                <span>Creator</span>
+
+                                <i
+                                    data-sort-check="creator"
+                                    class="hidden fa-solid fa-check text-[#1ED760]"
+                                ></i>
+                            </button>
+
+                            <!-- Divider -->
+                            <div class="my-1 border-t border-[#3A3A3A]"></div>
+
+                            <!-- View -->
+                            <div
+                                class="px-3 py-2 text-xs font-semibold text-[#B3B3B3]"
+                            >
+                                View as
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between px-2 py-1"
+                            >
+                                <!-- Compact List -->
+                                <button
+                                    type="button"
+                                    data-layout="compact-list"
+                                    class="flex h-9 w-9 items-center justify-center rounded text-[#B3B3B3] hover:bg-[#3E3E3E] hover:text-white"
+                                    title="Compact list"
+                                >
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+
+                                <!-- Default List -->
+                                <button
+                                    type="button"
+                                    data-layout="default-list"
+                                    class="flex h-9 w-9 items-center justify-center rounded bg-[#3E3E3E] text-white"
+                                    title="Default list"
+                                >
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+
+                                <!-- Compact Grid -->
+                                <button
+                                    type="button"
+                                    data-layout="compact-grid"
+                                    class="flex h-9 w-9 items-center justify-center rounded text-[#B3B3B3] hover:bg-[#3E3E3E] hover:text-white"
+                                    title="Compact grid"
+                                >
+                                    <i class="fa-solid fa-grip"></i>
+                                </button>
+
+                                <!-- Default Grid -->
+                                <button
+                                    type="button"
+                                    data-layout="default-grid"
+                                    class="flex h-9 w-9 items-center justify-center rounded text-[#B3B3B3] hover:bg-[#3E3E3E] hover:text-white"
+                                    title="Default grid"
+                                >
+                                    <i
+                                        class="fa-solid fa-table-cells-large"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Empty State Card 1 -->
+                        <article
+                            id="create-playlist-card"
+                            class="mt-4 rounded-lg bg-[#1F1F1F] p-4"
+                        >
                             <h2 class="text-sm font-bold lg:text-base">
                                 Create your first playlist
                             </h2>
 
-                            <p class="mt-2 text-xs lg:text-sm">
-                                It's easy,we'll help you
+                            <p class="mt-2 text-xs text-[#B3B3B3] lg:text-sm">
+                                It's easy, we'll help you
                             </p>
 
                             <button
+                                id="create-playlist-card-btn"
                                 class="mt-4 rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition-transform duration-200 hover:scale-105 lg:mt-5 lg:text-sm"
                             >
                                 Create playlist
                             </button>
                         </article>
 
-                        <!-- Card 2 -->
-                        <article class="rounded-lg bg-[#1F1F1F] p-4">
+                        <!-- Empty State Card 2 -->
+                        <article
+                            id="podcast-card"
+                            class="mt-3 rounded-lg bg-[#1F1F1F] p-4"
+                        >
                             <h2 class="text-sm font-bold lg:text-base">
                                 Let's find some podcasts to follow
                             </h2>
 
-                            <p class="mt-2 text-xs lg:text-sm">
+                            <p class="mt-2 text-xs text-[#B3B3B3] lg:text-sm">
                                 We'll keep you updated on new episodes
                             </p>
 
                             <button
+                                id="browse-podcasts-btn"
                                 class="mt-4 rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition-transform duration-200 hover:scale-105 lg:mt-5 lg:text-sm"
                             >
                                 Browse podcasts
                             </button>
                         </article>
+
+                        <!-- Library Items -->
+                        <div id="library-items" class="mt-3"></div>
                     </section>
 
                     <!-- Footer aside -->
@@ -765,12 +952,10 @@
                             id="entity-hero-banner"
                             class="flex items-end gap-6 bg-gradient-to-b from-[#8a1c22] via-[#521316] to-[#121212] p-8 pt-16"
                         >
-                            <img
+                            <div
                                 id="entity-cover"
-                                src=""
-                                alt=""
-                                class="h-52 w-52 shrink-0 rounded object-cover shadow-2xl"
-                            />
+                                class="h-52 w-52 shrink-0 overflow-hidden rounded shadow-2xl"
+                            ></div>
 
                             <div
                                 id="entity-metadata"
@@ -786,6 +971,11 @@
                                     class="break-words leading-normal text-5xl font-black tracking-tight md:text-7xl lg:text-8xl"
                                 ></h1>
 
+                                <p
+                                    id="playlist-description"
+                                    class="max-w-2xl text-sm leading-6 text-[#B3B3B3]"
+                                ></p>
+
                                 <span
                                     id="artist-verified"
                                     class="hidden items-center gap-1.5 text-sm font-semibold text-white"
@@ -798,7 +988,7 @@
                                         aria-hidden="true"
                                     >
                                         <path
-                                            d="M10.814.5a1.66 1.66 0 0 1 2.372 0l2.512 2.572 3.595-.043a1.66 1.66 0 0 1 1.678 1.678l-.043 3.595 2.572 2.512c.667.65.667 1.722 0 2.372l-2.572 2.512.043 3.595a1.66 1.66 0 0 1-1.678 1.678l-3.595-.043-2.512 2.572a1.66 1.66 0 0 1-2.372 0l-2.512-2.572-3.595.043a1.66 1.66 0 0 1-1.678-1.678l.043-3.595L.5 13.186a1.66 1.66 0 0 1 0-2.372l2.572-2.512-.043-3.595a1.66 1.66 0 0 1 1.678-1.678l3.595.043zm6.584 9.12a1 1 0 0 0-1.414-1.413l-6.011 6.01-1.894-1.893a1 1 0 0 0-1.414 1.414l3.308 3.308z"
+                                            d="M10.814.5a1.66 1.66 0 0 1 2.372 0l2.512 2.572 3.595-.043a1.66 1.66 0 0 1 1.678 1.678l-.043 3.595 2.572 2.512c.667.65.667 1.722 0 2.372l-2.572 2.512.043 3.595a1.66 1.66 0 0 1-1.678 1.678l-3.595-.043-2.512 2.572a1.66 1.66 0 0 1-2.372 0l-2.512-2.572-3.595.043a1.66 1.66 0 0 1-1.678-1.678l.043-3.595L.5 13.186a1.66 1.66 0 0 1 0-2.372l2.572-2.512-.043-3.595.043-3.595a1.66 1.66 0 0 1 1.678-1.678l3.595.043z"
                                         />
                                     </svg>
 
@@ -832,14 +1022,24 @@
                                         class="hover:underline"
                                     ></a>
 
-                                    <span class="text-gray-300">•</span>
+                                    <span
+                                        id="meta-separator-year"
+                                        class="text-gray-300"
+                                    >
+                                        •
+                                    </span>
 
                                     <span
                                         id="entity-release-year"
                                         class="text-gray-300"
                                     ></span>
 
-                                    <span class="text-gray-300">•</span>
+                                    <span
+                                        id="meta-separator-stats"
+                                        class="text-gray-300"
+                                    >
+                                        •
+                                    </span>
 
                                     <span
                                         id="entity-stats"
@@ -873,6 +1073,12 @@
                                             />
                                         </svg>
                                     </button>
+
+                                    <!-- Playlist actions: Edit / Delete -->
+                                    <div
+                                        id="playlist-action-buttons"
+                                        class="flex items-center gap-3"
+                                    ></div>
 
                                     <!-- Shuffle -->
                                     <button
@@ -1068,23 +1274,27 @@
                             </div>
 
                             <!-- Track header -->
-                            <div
-                                class="mb-2 grid grid-cols-[16px_1fr_120px] items-center gap-4 border-b border-white/10 px-4 py-2 text-sm font-semibold text-[#b3b3b3]"
-                            >
-                                <span>#</span>
+                            <div id="track-list-header">
+                                <div
+                                    class="mb-2 grid grid-cols-[16px_1fr_120px] items-center gap-4 border-b border-white/10 px-4 py-2 text-sm font-semibold text-[#b3b3b3]"
+                                >
+                                    <span>#</span>
 
-                                <span>Title</span>
+                                    <span>Title</span>
 
-                                <div class="flex justify-end pr-8">
-                                    <svg
-                                        class="h-4 w-4 stroke-current"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="2"
-                                    >
-                                        <circle cx="12" cy="12" r="10" />
-                                        <polyline points="12 6 12 12 16 14" />
-                                    </svg>
+                                    <div class="flex justify-end pr-8">
+                                        <svg
+                                            class="h-4 w-4 stroke-current"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke-width="2"
+                                        >
+                                            <circle cx="12" cy="12" r="10" />
+                                            <polyline
+                                                points="12 6 12 12 16 14"
+                                            />
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1448,7 +1658,7 @@
                 </aside>
             </div>
 
-            <!-- Player-->
+            <!-- Player -->
             <div>
                 <aside
                     class="fixed bottom-0 left-0 right-0 z-50 grid h-20 grid-cols-[1fr_2fr_1fr] items-center border-t border-[#1f1f1f] bg-black px-4"
@@ -1591,11 +1801,13 @@
                                         d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75z"
                                     />
                                 </svg>
+
                                 <span
                                     id="repeat-one-indicator"
-                                    class="absolute left-1/2 -top-2 hidden text-[9px] font-bold text-[#1ED760] -translate-x-1/2 text-[8px] font-bold leading-none"
-                                    >1</span
+                                    class="absolute -top-2 left-1/2 hidden -translate-x-1/2 text-[8px] font-bold leading-none text-[#1ED760]"
                                 >
+                                    1
+                                </span>
                             </button>
                         </div>
 
@@ -1651,6 +1863,7 @@
                                 />
                             </svg>
                         </button>
+
                         <!-- Queue -->
                         <button
                             class="tooltip hidden text-[#B3B3B3] transition hover:text-white lg:block"
@@ -1658,7 +1871,7 @@
                         >
                             <svg
                                 viewBox="0 0 16 16"
-                                class="h-4 w-4 fill-[#B3B3B3] transition-colors duration-200"
+                                class="h-4 w-4 fill-[#B3B3B3]"
                                 aria-hidden="true"
                             >
                                 <path
@@ -1685,6 +1898,7 @@
                                 />
                             </svg>
                         </button>
+
                         <!-- Volume -->
                         <div class="flex items-center gap-2">
                             <button
@@ -1706,24 +1920,23 @@
                                 </svg>
                             </button>
 
-                            <!-- Volume bar -->
+                            <!-- Volume Bar -->
                             <div
                                 id="volume-bar"
                                 class="group relative hidden h-1 w-24 cursor-pointer rounded-full bg-[#4D4D4D] sm:block"
                             >
-                                <!-- Thanh volume -->
                                 <div
                                     id="volume-progress"
                                     class="h-full w-0 rounded-full bg-white transition-colors duration-150 group-hover:bg-[#1ed760]"
                                 ></div>
 
-                                <!-- Chấm kéo -->
                                 <span
                                     id="volume-thumb"
-                                    class="pointer-events-none absolute top-1/2 h-3 w-3 -translate-y-1/2 -translate-x-1/2 rounded-full bg-white opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+                                    class="pointer-events-none absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white opacity-0 transition-opacity duration-150 group-hover:opacity-100"
                                 ></span>
                             </div>
                         </div>
+
                         <!-- Now Playing View -->
                         <div
                             class="tooltip ml-1"
@@ -1746,6 +1959,7 @@
                                 </svg>
                             </button>
                         </div>
+
                         <!-- Full Screen -->
                         <div
                             class="tooltip mx-1"
@@ -1773,7 +1987,139 @@
             </div>
         </div>
 
-        <!-- Global Toast -->
+        <!-- Menu side -->
+        <div
+            id="library-context-menu"
+            class="fixed z-50 hidden w-60 rounded-md bg-[#282828] p-1.5 shadow-2xl"
+        >
+            <button
+                id="context-menu-open"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i
+                    class="fa-solid fa-arrow-up-right-from-square w-4 text-[#B3B3B3]"
+                ></i>
+                <span>Open</span>
+            </button>
+
+            <button
+                id="context-menu-play"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i class="fa-solid fa-play w-4 text-[#B3B3B3]"></i>
+                <span>Play</span>
+            </button>
+
+            <button
+                id="context-menu-queue"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i class="fa-solid fa-list w-4 text-[#B3B3B3]"></i>
+                <span>Add to Queue</span>
+            </button>
+
+            <button
+                id="context-menu-add"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i class="fa-solid fa-plus w-4 text-[#B3B3B3]"></i>
+                <span>Add to Playlist</span>
+            </button>
+
+            <div class="my-1 h-px bg-[#3E3E3E]"></div>
+
+            <button
+                id="context-menu-edit"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i class="fa-solid fa-pen w-4 text-[#B3B3B3]"></i>
+                <span>Edit Playlist</span>
+            </button>
+
+            <button
+                id="context-menu-copy"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i class="fa-solid fa-link w-4 text-[#B3B3B3]"></i>
+                <span>Copy Link</span>
+            </button>
+
+            <div class="my-1 h-px bg-[#3E3E3E]"></div>
+
+            <button
+                id="context-menu-action"
+                type="button"
+                class="flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm text-white hover:bg-[#3E3E3E]"
+            >
+                <i
+                    id="context-menu-action-icon"
+                    class="fa-solid fa-trash w-4 text-[#B3B3B3]"
+                ></i>
+
+                <span id="context-menu-action-text"></span>
+            </button>
+        </div>
+
+        <!-- Delete Playlist Modal -->
+        <div
+            id="delete-playlist-modal"
+            class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 px-4"
+        >
+            <div class="w-full max-w-md rounded-xl bg-[#282828] p-6 shadow-2xl">
+                <!-- Header -->
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold text-white">
+                            Delete playlist?
+                        </h2>
+
+                        <p class="mt-2 text-sm leading-6 text-[#B3B3B3]">
+                            This will permanently delete
+                            <span
+                                id="delete-playlist-name"
+                                class="font-semibold text-white"
+                            ></span
+                            >.
+                        </p>
+                    </div>
+
+                    <button
+                        id="btn-close-delete-modal"
+                        type="button"
+                        class="flex h-8 w-8 items-center justify-center rounded-full text-[#B3B3B3] hover:bg-white/10 hover:text-white"
+                        aria-label="Close"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Actions -->
+                <div class="mt-6 flex justify-end gap-3">
+                    <button
+                        id="btn-cancel-delete-playlist"
+                        type="button"
+                        class="rounded-full px-5 py-2.5 text-sm font-bold text-white hover:bg-white/10"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        id="btn-confirm-delete-playlist"
+                        type="button"
+                        class="rounded-full bg-[#e91429] px-5 py-2.5 text-sm font-bold text-white transition-transform hover:scale-105 active:scale-95"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Global Toast -->
         <div
             id="toast"
