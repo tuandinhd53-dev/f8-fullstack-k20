@@ -11,8 +11,8 @@ Repo chứa **2 dự án routing độc lập** cùng xây dựng một website 
 
 ## 🔗 Live Demo
 
-- **Bài 1 — Vanilla Router Shop:** https://k20-day34-vanilla-react-router-shop.vercel.app
-- **Bài 2 — React Router Shop:** https://k20-day34-react-router-shop.vercel.app
+- **Bài 1 — Vanilla Router Shop:** https://f8-fullstack-k20-l4h3.vercel.app
+- **Bài 2 — React Router Shop:** https://f8-fullstack-k20-react-router.vercel.app
 
 > Hai dự án được deploy thành 2 project Vercel riêng và cùng sử dụng repository này với Root Directory tương ứng.
 
