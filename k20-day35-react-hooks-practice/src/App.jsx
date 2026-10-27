@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import ShopPage from "./pages/ShopPage.jsx";
 import AudioPlayerPage from "./pages/AudioPlayerPage.jsx";
+import ModalPage from "./pages/ModalPage.jsx";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
 
             <Route path="/audio-player" element={<AudioPlayerPage />} />
 
-            <Route path="/custom-modal" />
+            <Route path="/custom-modal" element={<ModalPage />} />
 
             <Route
                 path="*"
