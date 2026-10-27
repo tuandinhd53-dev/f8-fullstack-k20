@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import AudioPlayerView from "../components/AudioPlayerView.jsx";
 import StopwatchView from "../components/StopwatchView.jsx";
 import { audioTracks } from "../data/audioTracks.js";
+import Stopwatch from "../components/Stopwatch.jsx";
 
 function AudioPlayerPage() {
     const audioRef = useRef(null);
@@ -96,32 +97,34 @@ function AudioPlayerPage() {
     };
 
     return (
-        <main className="mx-auto max-w-5xl space-y-6 bg-slate-50 p-6">
-            <AudioPlayerView
-                audioRef={audioRef}
-                audioSrc={audioSrc}
-                trackTitle={curentTrack.title}
-                tracks={audioTracks}
-                onSelectTrack={handleSelectTrack}
-                isPlaying={isPlaying}
-                onPlay={handlePlay}
-                onPause={handlePause}
-                isMuted={isMuted}
-                onToggleMute={handleToggleMute}
-                volume={volume}
-                volumeUp={handleVolumeUp}
-                volumeDown={handleVolumeDown}
-                currentTime={currentTime}
-                duration={duration}
-                onTimeUpdate={handleTimeUpdate}
-                onLoadedMetadata={handleLoadedMetadata}
-                onSeek={handleSeek}
-                nextIndex={handleNextTrack}
-                prevIndex={handlePreviousTrack}
-                onEnded={handleEnded}
-            />
+        <main className="min-h-screen bg-slate-50 px-4 py-6">
+            <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
+                <AudioPlayerView
+                    audioRef={audioRef}
+                    audioSrc={audioSrc}
+                    trackTitle={curentTrack.title}
+                    tracks={audioTracks}
+                    onSelectTrack={handleSelectTrack}
+                    isPlaying={isPlaying}
+                    onPlay={handlePlay}
+                    onPause={handlePause}
+                    isMuted={isMuted}
+                    onToggleMute={handleToggleMute}
+                    volume={volume}
+                    volumeUp={handleVolumeUp}
+                    volumeDown={handleVolumeDown}
+                    currentTime={currentTime}
+                    duration={duration}
+                    onTimeUpdate={handleTimeUpdate}
+                    onLoadedMetadata={handleLoadedMetadata}
+                    onSeek={handleSeek}
+                    nextIndex={handleNextTrack}
+                    prevIndex={handlePreviousTrack}
+                    onEnded={handleEnded}
+                />
 
-            <StopwatchView />
+                <Stopwatch />
+            </div>
         </main>
     );
 }
