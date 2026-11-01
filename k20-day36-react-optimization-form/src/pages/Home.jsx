@@ -120,7 +120,7 @@ function Home() {
                             to="product-optimization"
                             className="flex w-full items-center justify-center gap-2 rounded-lg bg-slate-800 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-slate-700"
                         >
-                            Làm bài 1<span>→</span>
+                            Vào bài 1<span>→</span>
                         </Link>
                     </article>
 
@@ -187,10 +187,10 @@ function Home() {
 
                         {/* Button */}
                         <Link
-                            to="/bai-2"
+                            to="/register-form"
                             className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700"
                         >
-                            Làm bài 2<span>→</span>
+                            Vào bài 2<span>→</span>
                         </Link>
                     </article>
                 </section>

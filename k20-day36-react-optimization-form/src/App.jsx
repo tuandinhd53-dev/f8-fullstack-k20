@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import { ProductOptimization } from "./pages/ProductOptimization";
+import RegisterForm from "./pages/RegisterForm";
 
 function NotFound() {
     return (
@@ -90,6 +91,8 @@ function App() {
                 path="/product-optimization"
                 element={<ProductOptimization />}
             />
+
+            <Route path="/register-form" element={<RegisterForm />} />
 
             {/* Trang 404 cho mọi đường dẫn không tồn tại */}
             <Route path="*" element={<NotFound />} />
