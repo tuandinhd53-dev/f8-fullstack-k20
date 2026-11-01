@@ -24,7 +24,11 @@ function RegisterFormView({
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    noValidate
+                    className="space-y-5"
+                >
                     {/* Email */}
                     <div className="space-y-2">
                         <label
