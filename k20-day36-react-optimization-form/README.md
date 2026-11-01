@@ -1,16 +1,24 @@
-# React + Vite
+# Hướng dẫn Bài tập React nâng cao: Tối ưu bộ lọc & Form Validation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dự án này bao gồm hai bài tập thực hành cốt lõi trong phát triển ứng dụng Front-end hiện đại với React, bao gồm kỹ thuật tối ưu hóa hiệu năng render dữ liệu lớn (`useMemo`) và xử lý form thông minh, an toàn (`React Hook Form` kết hợp `Zod`).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📂 Cấu trúc bài tập
 
-## React Compiler
+1. **Bài 1:** `ProductFilterOptimizer` — Xây dựng và tối ưu bộ lọc, tìm kiếm và sắp xếp cho danh sách lớn gồm 1.000 sản phẩm mẫu, ngăn chặn việc tính toán lại không cần thiết khi state phụ (như `count`) thay đổi.
+2. **Bài 2:** `RegisterForm` — Xây dựng biểu mẫu đăng ký tài khoản với cơ chế xác thực dữ liệu chặt chẽ bằng Zod Schema, xử lý trạng thái bất đồng bộ (`isSubmitting`) khi gọi API giả lập.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Hướng dẫn Cài đặt & Chạy dự án
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Nếu bạn tích hợp vào dự án React + Vite hiện tại, hãy đảm bảo đã cài đặt các thư viện cần thiết cho Bài 2:
+
+```bash
+npm install react-hook-form zod @hookform/resolvers
+
+
+Chạy môi trường phát triển (Development Server):
+npm run dev
+```
