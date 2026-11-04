@@ -59,7 +59,7 @@ Ví dụ:
 ### Bước 1: Clone repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone <https://github.com/tuandinhd53-dev/f8-fullstack-k20.git>
 ```
 
 ### Bước 2: Di chuyển vào thư mục dự án
@@ -146,5 +146,5 @@ Các component được chia theo trách nhiệm giao diện:
 
 ## 8. Links
 
-- **GitHub Repository:** `<YOUR_GITHUB_REPOSITORY_URL>`
-- **Live Demo:** `<YOUR_VERCEL_DEPLOYMENT_URL>`
+- **GitHub Repository:** `https://github.com/tuandinhd53-dev/f8-fullstack-k20.git`
+- **Live Demo:** `https://k20-day37-zustand-tanstack-query-delta.vercel.app/`
