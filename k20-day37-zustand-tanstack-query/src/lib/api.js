@@ -2,7 +2,7 @@
 const API_URL = "https://dummyjson.com/products";
 
 // Lấy danh sách danh mục sản phẩm từ API.
-export const getCategories = async () => {
+export const fetchCategories = async () => {
     const res = await fetch(`${API_URL}/category-list`);
 
     if (!res.ok) {
@@ -12,7 +12,7 @@ export const getCategories = async () => {
     return res.json();
 };
 
-export const getProductsByCategory = async (category) => {
+export const fetchProductsByCategory = async (category) => {
     const res = await fetch(`${API_URL}/category/${category}`);
 
     if (!res.ok) {
