@@ -1,13 +1,232 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>k20-day42-typescript-payment-processing</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="TypeScript Payment Processing Dashboard"
+        />
+        <title>Payment System | Day 42</title>
+    </head>
+
+    <body class="min-h-screen bg-[#0B0F14] text-gray-100">
+        <div id="app" class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:py-12">
+            <!-- Header -->
+            <header
+                class="mb-8 flex flex-wrap items-center justify-between gap-4"
+            >
+                <div>
+                    <p
+                        class="mb-2 text-xs font-semibold tracking-[0.2em] text-green-500"
+                    >
+                        DAY 42 · TYPESCRIPT
+                    </p>
+                    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">
+                        Payment System
+                    </h1>
+                    <p class="mt-2 text-sm text-gray-400">
+                        Quản lý và theo dõi giao dịch thanh toán.
+                    </p>
+                </div>
+
+                <span
+                    class="rounded-full border border-gray-800 bg-[#111820] px-3 py-2 text-xs text-gray-400"
+                >
+                    TypeScript · OOP
+                </span>
+            </header>
+
+            <main class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+                <!-- Left: Payment form -->
+                <section
+                    class="h-fit rounded-2xl border border-gray-800 bg-[#111820] p-5 sm:p-6"
+                >
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold">Tạo thanh toán</h2>
+                        <p class="mt-1 text-sm text-gray-500">
+                            Nhập thông tin đơn hàng để thực hiện giao dịch.
+                        </p>
+                    </div>
+
+                    <form id="payment-form" class="space-y-5">
+                        <div>
+                            <label
+                                for="orderId"
+                                class="mb-2 block text-sm font-medium text-gray-300"
+                            >
+                                Mã đơn hàng
+                            </label>
+                            <input
+                                id="orderId"
+                                name="orderId"
+                                type="number"
+                                min="1"
+                                step="1"
+                                placeholder="Ví dụ: 1001"
+                                class="w-full rounded-xl border border-gray-700 bg-[#0B0F14] px-4 py-3 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500/10"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="amount"
+                                class="mb-2 block text-sm font-medium text-gray-300"
+                            >
+                                Số tiền thanh toán
+                            </label>
+                            <div class="relative">
+                                <input
+                                    id="amount"
+                                    name="amount"
+                                    type="number"
+                                    min="1"
+                                    step="any"
+                                    placeholder="Nhập số tiền"
+                                    class="w-full rounded-xl border border-gray-700 bg-[#0B0F14] px-4 py-3 pr-16 text-sm outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500/10"
+                                />
+                                <span
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500"
+                                >
+                                    VNĐ
+                                </span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label
+                                for="method"
+                                class="mb-2 block text-sm font-medium text-gray-300"
+                            >
+                                Phương thức thanh toán
+                            </label>
+                            <select
+                                id="method"
+                                name="method"
+                                class="w-full rounded-xl border border-gray-700 bg-[#0B0F14] px-4 py-3 text-sm outline-none transition focus:border-green-500"
+                            >
+                                <option value="COD">
+                                    Thanh toán khi nhận hàng (COD)
+                                </option>
+                                <option value="BANK_TRANSFER">
+                                    Chuyển khoản ngân hàng
+                                </option>
+                                <option value="E_WALLET">Ví điện tử</option>
+                            </select>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="w-full rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-500 active:scale-[0.99]"
+                        >
+                            Xác nhận thanh toán
+                        </button>
+                    </form>
+
+                    <div
+                        id="payment-result"
+                        class="mt-5 hidden rounded-xl border p-4 text-sm"
+                        aria-live="polite"
+                    ></div>
+                </section>
+
+                <!-- Right: Dashboard -->
+                <div class="space-y-6">
+                    <!-- Statistics -->
+                    <section class="grid grid-cols-2 gap-4">
+                        <div
+                            class="rounded-2xl border border-gray-800 bg-[#111820] p-5"
+                        >
+                            <p class="text-sm text-gray-500">Tổng hóa đơn</p>
+                            <p
+                                id="receipt-count"
+                                class="mt-3 text-2xl font-bold"
+                            >
+                                0
+                            </p>
+                            <p class="mt-1 text-xs text-gray-500">
+                                Giao dịch thành công
+                            </p>
+                        </div>
+
+                        <div
+                            class="rounded-2xl border border-gray-800 bg-[#111820] p-5"
+                        >
+                            <p class="text-sm text-gray-500">Tổng tiền</p>
+                            <p
+                                id="total-amount"
+                                class="mt-3 break-words text-xl font-bold text-green-400"
+                            >
+                                0 ₫
+                            </p>
+                            <p class="mt-1 text-xs text-gray-500">
+                                Tổng giá trị giao dịch
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Search -->
+                    <section
+                        class="rounded-2xl border border-gray-800 bg-[#111820] p-5"
+                    >
+                        <h2 class="font-semibold">Tra cứu hóa đơn</h2>
+
+                        <form id="search-form" class="mt-4 flex gap-2">
+                            <input
+                                id="search-receipt-id"
+                                type="number"
+                                min="1"
+                                step="1"
+                                placeholder="Nhập mã hóa đơn..."
+                                class="min-w-0 flex-1 rounded-xl border border-gray-700 bg-[#0B0F14] px-4 py-3 text-sm outline-none focus:border-green-500"
+                            />
+                            <button
+                                type="submit"
+                                class="rounded-xl bg-gray-700 px-4 py-3 text-sm font-medium transition hover:bg-gray-600"
+                            >
+                                Tìm kiếm
+                            </button>
+                        </form>
+
+                        <div
+                            id="search-result"
+                            class="mt-4 hidden rounded-xl border p-4 text-sm"
+                        ></div>
+                    </section>
+
+                    <!-- Receipt history -->
+                    <section
+                        class="rounded-2xl border border-gray-800 bg-[#111820] p-5"
+                    >
+                        <div class="mb-5 flex items-center justify-between">
+                            <div>
+                                <h2 class="font-semibold">
+                                    Lịch sử thanh toán
+                                </h2>
+                                <p class="mt-1 text-xs text-gray-500">
+                                    Các hóa đơn trong phiên hiện tại
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="receipt-list" class="space-y-3">
+                            <p
+                                class="rounded-xl border border-dashed border-gray-700 px-4 py-8 text-center text-sm text-gray-500"
+                            >
+                                Chưa có giao dịch nào.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <footer
+                class="mt-8 border-t border-gray-800 pt-5 text-center text-xs text-gray-600"
+            >
+                Payment System · TypeScript Practice · Day 42
+            </footer>
+        </div>
+
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>
