@@ -1,4 +1,4 @@
-import type { Product } from "./product-types";
+import type { Product, ProductUpdate } from "./product-types";
 
 const products: Product[] = [
     {
@@ -37,3 +37,24 @@ const products: Product[] = [
         stock: 5,
     },
 ];
+
+export function findProductById(id: number): Product | undefined {
+    return products.find((product) => id === product.id);
+}
+
+export function updateProduct(
+    id: number,
+    update: ProductUpdate,
+): Product | undefined {
+    const indexProduct = products.findIndex((product) => product.id === id);
+
+    if (indexProduct === -1) return undefined;
+    const updatedProduct = {
+        ...products[indexProduct],
+        ...update,
+    };
+
+    products[indexProduct] = updatedProduct;
+
+    return updatedProduct;
+}
