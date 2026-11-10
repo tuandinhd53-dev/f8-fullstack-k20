@@ -1,5 +1,11 @@
+import { ProductCatalog } from "./pages/ProductCatalog";
+
 function App() {
-    return <></>;
+    return (
+        <>
+            <ProductCatalog />
+        </>
+    );
 }
 
 export default App;
