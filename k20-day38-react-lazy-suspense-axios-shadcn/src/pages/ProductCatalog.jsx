@@ -7,7 +7,7 @@ import {
     getCategories,
 } from "@/api/products";
 
-export function ProductCatalog() {
+function ProductCatalog() {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     // Truy vấn Products
@@ -315,3 +315,4 @@ export function ProductCatalog() {
         </main>
     );
 }
+export default ProductCatalog;

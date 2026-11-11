@@ -17,3 +17,15 @@ export async function getProductsByCategory(slug) {
     const res = await api.get(`/products/category/${slug}`);
     return res.data.products;
 }
+
+// Thêm sản phẩm.
+export async function addProduct(product) {
+    const res = await api.post("/products/add", product);
+    return res.data;
+}
+
+// Chỉnh sửa sản phẩm
+export async function updateProduct(id, product) {
+    const res = await api.patch(`/products/${id}`, product);
+    return res.data;
+}

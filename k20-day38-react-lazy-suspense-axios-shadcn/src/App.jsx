@@ -1,9 +1,10 @@
-import { ProductCatalog } from "./pages/ProductCatalog";
+import  ProductCatalog  from "./pages/ProductCatalog";
+import  ProductManagement  from "./pages/ProductManagement";
 
 function App() {
     return (
         <>
-            <ProductCatalog />
+            <ProductManagement />
         </>
     );
 }
