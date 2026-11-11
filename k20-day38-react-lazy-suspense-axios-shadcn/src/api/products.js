@@ -29,3 +29,10 @@ export async function updateProduct(id, product) {
     const res = await api.patch(`/products/${id}`, product);
     return res.data;
 }
+
+// Lấy thông tin sản phẩm
+
+export async function getProductById(id) {
+    const res = await api.get(`/products/${id}`);
+    return res.data;
+}
