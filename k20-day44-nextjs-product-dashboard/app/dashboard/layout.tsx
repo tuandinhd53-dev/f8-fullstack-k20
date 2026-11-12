@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DashboardNav from "./DashboardNav";
+import { Suspense } from "react";
 
 export default function DashboardLayout({
     children,
@@ -39,7 +40,9 @@ export default function DashboardLayout({
             {/* Navigation */}
             <div className="border-b border-gray-200 bg-white">
                 <div className="mx-auto max-w-6xl px-6">
-                    <DashboardNav />
+                    <Suspense fallback={<div>Đang tải menu...</div>}>
+                        <DashboardNav />
+                    </Suspense>
                 </div>
             </div>
 
