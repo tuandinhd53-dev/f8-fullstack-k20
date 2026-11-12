@@ -1,5 +1,6 @@
 import { getProducts } from "@/app/lib/products";
 import Link from "next/link";
+import { Suspense } from "react";
 
 // Kiểu dữ liệu searchParams từ URL
 
@@ -7,15 +8,16 @@ type ProductsPageProps = {
     searchParams: Promise<{ query?: string; page?: string }>;
 };
 
-export default async function ProductsPage({
-    searchParams,
-}: ProductsPageProps) {
+// Server Component: chịu trách nhiệm lấy dữ liệu API và render danh sách sản phẩm
+async function ProductsContent({ searchParams }: ProductsPageProps) {
     // Lấy tham số từ URL
     const params = await searchParams;
 
     const query = params.query || "";
     const page = Math.max(1, Number(params.page) || 1);
 
+    // Gọi API lấy danh sách sản phẩm
+    // Destructuring để lấy từng thuộc tính từ dữ liệu API trả về
     const {
         items: products,
         total,
@@ -23,16 +25,20 @@ export default async function ProductsPage({
         currentPage,
     } = await getProducts(query, page);
 
+    // Xác định trạng thái của hai nút phân trang
     const isPreviousDisabled = currentPage === 1;
     const isNextDisabled = currentPage === totalPages;
 
+    // Hàm tạo URL khi chuyển trang
     const createPageUrl = (pageNumber: number) => {
         const params = new URLSearchParams();
 
+        // Nếu đang tìm kiếm thì giữ lại từ khóa query
         if (query) {
             params.set("query", query);
         }
 
+        // Thêm số trang vào URL
         params.set("page", pageNumber.toString());
 
         return `/dashboard/products?${params.toString()}`;
@@ -208,5 +214,17 @@ export default async function ProductsPage({
                 </div>
             </div>
         </main>
+    );
+}
+
+// Page Component: Là component chính của route /dashboard/products.
+// Suspense tạo ranh giới loading cho phần lấy dữ liệu bất đồng bộ.
+// Trong lúc ProductsContent chờ dữ liệu, fallback sẽ được hiển thị.
+
+export default function ProductsPage(props: ProductsPageProps) {
+    return (
+        <Suspense fallback={<div>Đang tải sản phẩm...</div>}>
+            <ProductsContent searchParams={props.searchParams} />
+        </Suspense>
     );
 }
