@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DashboardNav from "./DashboardNav";
 
 export default function DashboardLayout({
     children,
@@ -35,22 +36,11 @@ export default function DashboardLayout({
             </header>
 
             {/* Navigation */}
+            {/* Navigation */}
             <div className="border-b border-gray-200 bg-white">
-                <nav className="mx-auto flex max-w-6xl gap-8 px-6">
-                    <Link
-                        href="/dashboard"
-                        className="border-b-2 border-blue-600 py-4 text-sm font-semibold text-blue-600"
-                    >
-                        Tổng quan
-                    </Link>
-
-                    <Link
-                        href="/dashboard/products"
-                        className="border-b-2 border-transparent py-4 text-sm font-medium text-gray-500 transition hover:border-gray-300 hover:text-gray-900"
-                    >
-                        Sản phẩm
-                    </Link>
-                </nav>
+                <div className="mx-auto max-w-6xl px-6">
+                    <DashboardNav />
+                </div>
             </div>
 
             {/* Main content */}
