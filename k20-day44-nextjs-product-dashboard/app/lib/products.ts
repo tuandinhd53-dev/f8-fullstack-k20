@@ -47,7 +47,14 @@ export async function getProductStats(): Promise<ProductStats> {
     return request<ProductStats>("products/stats");
 }
 
-// Lấy danh sách sản phẩm theo từ khóa và phân trang
+/**
+ * Lấy danh sách sản phẩm theo từ khóa và phân trang.
+ * @param query - Từ khóa tìm kiếm
+ * @param page - Trang hiện tại
+ * @param pageSize - Số sản phẩm mỗi trang
+ * @returns Promise chứa danh sách sản phẩm và thông tin phân trang
+ */
+
 export function getProducts(
     query: string = "",
     page: number = 1,
