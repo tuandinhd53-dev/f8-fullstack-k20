@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
+import AppRouter from "@/routers/AppRouter";
 
 function App() {
-    return (
-        <main className="flex min-h-svh items-center justify-center">
-            <Button>Threads Clone</Button>
-        </main>
-    );
+    return <AppRouter />;
 }
 
 export default App;
