@@ -43,3 +43,16 @@ export interface LoginCredentials {
     login: string;
     password: string;
 }
+
+// Dữ liệu API Login trả về bên trong thuộc tính data
+export interface LoginData extends AuthTokens {
+    user: User;
+    expires_in: number;
+}
+
+// Cấu trúc response tổng thể của API Login
+export interface LoginResponse {
+    success: boolean;
+    message: string;
+    data: LoginData;
+}
