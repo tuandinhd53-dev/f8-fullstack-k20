@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import NavLink from "./nav-link";
+import NavLink from "../components/nav-link";
 import Link from "next/link";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
